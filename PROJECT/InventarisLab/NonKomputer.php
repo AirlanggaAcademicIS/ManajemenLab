@@ -43,7 +43,10 @@ body {
 		        <tr>
 		          <th align="left" scope="row">Jenis Barang</th>
 		          <td><select name="jenisBarang" id="jenisBarang">
-		            <option value="ATK">ATK</option>
+		            <option value="Bulpoin">Bulpoin</option>
+		            <option value="Spidol">Spidol</option>
+		            <option value="Tinta">Tinta</option>
+		            <option value="Stipo">Stipo</option>
                   </select></td>
 		          <td>&nbsp;</td>
             </tr>
@@ -114,6 +117,8 @@ body {
           </table>
 	      <p>&nbsp;</p>
 	      <p>&nbsp;</p>
+          
+          
         </form>
 			<p class="pad"><br />
 	    </p>
