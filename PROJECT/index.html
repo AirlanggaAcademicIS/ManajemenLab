@@ -23,6 +23,25 @@ a:active {
 	color: #000000;
 }
 </style>
+<style>
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
 </head>
 
 <body>
@@ -36,7 +55,15 @@ a:active {
   
   <div class="nav">
   <ul class="menu">
-  <li><a href="inventaris.html"><center>INVENTARIS</center></a></li>
+  
+  <div class="dropdown">
+  <span><li><a href="inventaris.html"><center>INVENTARIS</center></a></li></span>
+  <div class="dropdown-content">
+    <a href=""><center>KOMPUTER</center></a>
+    <a href=""><center>NON KOMPUTER</center></a>
+    
+  </div>
+</div>
   <li><a href="ManageLab.html"><center>MANAGE LAB</center></a></li>
   <li><a href="Penjadwalan.html"><center>PENJADWALAN</center></a></li>
   <li><a href="HistoriBarang.html"><center>HISTORI</center></a></li>

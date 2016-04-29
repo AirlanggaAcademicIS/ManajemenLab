@@ -66,7 +66,7 @@ body {
             </tr>
 		        <tr>
 		          <th scope="row">&nbsp;</th>
-		          <td><input type="submit" name="insert" id="insert" value="Insert" /></td>
+		          <td>  <input type="submit" name="insert" id="insert" value="Insert" /></td>
 		          <td>&nbsp;</td>
             </tr>
           </table>
