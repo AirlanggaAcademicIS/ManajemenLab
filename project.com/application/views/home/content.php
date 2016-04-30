@@ -15,7 +15,7 @@
   <span><li><a href="inventaris.html"><center>INVENTARIS</center></a></li></span>
   <div class="dropdown-content">
     <a href=""><center>KOMPUTER</center></a>
-    <a href=""><center>NON KOMPUTER</center></a>
+    <a href="<?php echo base_url();?>/inventaris"><center>NON KOMPUTER</center></a>
     
   </div>
 </div>
