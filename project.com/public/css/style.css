@@ -1,0 +1,31 @@
+@charset "utf-8";
+body{
+	background:#e5f2fc;}
+
+.main{
+	width: 900px;
+	background:#E5E5E5;
+	margin:0 auto;
+}
+.header{
+	height:150px;
+	background:url(../images/header.jpg);
+}
+.imgcenter {
+      display: block;
+      margin: 0px auto;
+      text-align: center;
+}
+.nav{
+	height:40px;
+	background:#D4D4D4;
+	line-height:40px;
+}
+.content{
+	height:700px;
+	background:#FFFFFF;
+}
+.footer{
+	height:100px;
+	background:#90cdf4;
+}

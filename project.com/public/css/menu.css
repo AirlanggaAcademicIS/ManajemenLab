@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+}
+
+ul.menu {
+	padding-left:15px;
+	font-weight:600;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif
+}
+
+
+ul.menu li{
+	list-style-type:none;
+	display:inline-block;
+	width:170px;
+	cursor:pointer;
+}
+ul.menu li:hover{
+	background: #91CAF5;
+}
