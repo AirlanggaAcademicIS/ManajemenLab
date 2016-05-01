@@ -10,16 +10,16 @@
                 <a class="nav-link" href="<?php echo base_url();?>/inventaris">Inventaris</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Management Lab</a>
+                <a class="nav-link" href="<?php echo base_url();?>/managelab">Management Lab</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>/penjadwalan">Scheduling</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">History</a>
+                <a class="nav-link" href="<?php echo base_url();?>/history">History</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">E-Ticketing</a>
+                <a class="nav-link" href="<?php echo base_url();?>/eticketing">E-Ticketing</a>
             </li>
         </ul>
 

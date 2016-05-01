@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?php echo base_url();?>public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>public/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo base_url();?>public/css/styles.css">
       
