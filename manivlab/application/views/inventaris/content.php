@@ -1,4 +1,5 @@
 <body>
+
             <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
         <img class="navbar-brand" src="<?php echo base_url();?>public/images/logomanivlab.png">
         <ul class="nav navbar-nav">
@@ -6,8 +7,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>/home">Home </a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>/inventaris">Inventaris <span class="sr-only">(current)</span></a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inventaris</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Komputer</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/Inventaris">Non-Komputer</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>/managelab">Management Lab</a>
@@ -25,135 +30,150 @@
 
     </nav>
 
-  <div class="content">
-    <div id="wrapper">
-  <div class="left"> </div>
-    <div class="right">
-      <blockquote>
-        <p class="pad"><br />
-          </p>
-      </blockquote>
-      <form id="form1" name="form1" method="post" action="">
-        <blockquote>
-          <blockquote>
-            <blockquote>
-<div id="content"></div>
-              <p class="style2"> <strong> SELAMAT DATANG, SELAMAT BEKERJA</strong></p>
-              <blockquote>
-                <p class="pad">Sistem ini memberikan kemudahan bagi petugas laboratorium komputer untuk memasukkan data barang. Dengan bahasa yang mudah dipahami, sistem ini sangat efektif dan efisien bagi petugas laboratorium komputer tanpa terbatas oleh tempat dan waktu. </p>
-              </blockquote>
-<blockquote>&nbsp;</blockquote>
-            </blockquote>
-          </blockquote>
-        </blockquote>
-        <table width="707" height="89" border="0">
-            <tr>
-              <th colspan="3" scope="row"><p>&nbsp;</p>
-              <p>INPUT DATA BARANG NON-KOMPUTER </p></th>
-            </tr>
-            <tr>
-              <th scope="row">&nbsp;</th>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <th width="142" scope="row">&nbsp;</th>
-              <td width="287">&nbsp;</td>
-              <td width="264"><input name="nama" type="text" id="nama" value="">                <input type="submit" name="search" id="search" value="Search" /></td>
-            </tr>
-            <tr>
-              <th scope="row">&nbsp;</th>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <th align="left" scope="row">ID Barang</th>
-              <td><input name="idBarang" type="text" disabled id="idBarang" value="IDI001"></td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <th align="left" scope="row">Jenis Barang</th>
-              <td><select name="jenisBarang" id="jenisBarang">
-                <option value="Bulpoin">Bulpoin</option>
-                <option value="Spidol">Spidol</option>
-                <option value="Tinta">Tinta</option>
-                <option value="Stipo">Stipo</option>
-                  </select></td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <th align="left" scope="row">Merk</th>
-              <td><input name="merk" type="text" id="merk" value=""></td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <th align="left" scope="row">Jumlah</th>
-              <td><input name="jumlah" type="text" id="jumlah" value=""></td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <th align="left" scope="row">Deskripsi</th>
-              <td colspan="2"><textarea name="deskripsi" id="deskripsi" cols="45" rows="5"></textarea></td>
-            </tr>
-            <tr>
-              <th scope="row">&nbsp;</th>
-              <td>  <input type="submit" name="insert" id="insert" value="Insert" /></td>
-              <td>&nbsp;</td>
-            </tr>
-          </table>
-        <p>&nbsp;</p>
-        <table width="704" height="40" border="1" id="tampilan">
-          <tr>
-            <th align="center" bgcolor="#999999" scope="row"><strong>ID Barang</strong></th>
-            <td align="center" bgcolor="#999999"><strong>Jenis Barang</strong></td>
-            <td align="center" bgcolor="#999999"><strong>Merk</strong></td>
-            <td align="center" bgcolor="#999999"><strong>Jumlah</strong></td>
-            <td align="center" bgcolor="#999999"><strong>Deskripsi</strong></td>
-            </tr>
-          <tr>
-            <th align="center" scope="row">&nbsp;</th>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            </tr>
-          <tr>
-            <th align="center" scope="row">&nbsp;</th>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            </tr>
-          <tr>
-            <th align="center" scope="row">&nbsp;</th>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            </tr>
-          <tr>
-            <th align="center" scope="row">&nbsp;</th>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            </tr>
-          <tr>
-            <th align="center" scope="row">&nbsp;</th>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            <td align="center">&nbsp;</td>
-            </tr>
-          </table>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
+        <div class="container-fluid">
+      <div class="container text-center">
+        <div class="row">
+          <div class="">
+            <div class="box-keluar">        
+              <h1></h1>
+              <h3> Selamat Datang di Fitur Non-Komputer, Selamat Bekerja ^^ </h3>
+                 <h6> Sistem ini memberikan kemudahan bagi petugas laboratorium komputer untuk memasukkan data barang non komputer. Dengan bahasa yang mudah dipahami, sistem ini sangat efektif dan efisien bagi petugas laboratorium komputer tanpa terbatas oleh tempat dan waktu.</h6>
+              <br>
+              <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <label for="exampleInputName2">ID Barang </label>
+                      <input type="text" class="form-control" id="exampleInputName2" placeholder="Masukkan ID Barang">
+                      <button type="button" class="btn btn-primary ">Search</button>       
+                    </div>
+                  </form>
+                  <br>                  
+                </div>
+                <div class="col-md-5" style="text-align:right">
+                  Petugas Laboratorium : Emilia
+                </div>
+              </div>
+
+              <table class="" style="border: 0px currentColor; border-image: none;">
+
+            </table>
+            <br>
+            </form>
+
+          </div>
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div> 
+     
+     <div class="container-fluid">
+      <div class="container">
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="container">
+        
+        <br>
+     <form id="formnonkomp" name="formnonkomp" method ="post" action="<?php echo base_url();?>Inventaris/insertnonkomp">
+            <div class="form-group">
+              <label for="inputNonKomp" class="col-sm-2 control-label">Nama Barang :</label>
+              <div class="col-sm-10">  
+                <input type="text" class="form-control" name="namabarang" id="inputNonKomp" placeholder="Nama Barang" >
+              </div>
+              
+              <label for="inputNonKomp" class="col-sm-2 control-label">Jenis Barang :</label>
+              <div class="col-sm-10">
+                  <select name="jenisbarang" class="form-control">
+                    <option value="Alat Tulis Kantor">Alat Tulis Kantor</option>
+                    <option value="Perlengkapan Lab">Perlengkapan Lab</option>
+                    <option value="Kebersihan">Kebersihan</option>
+                    <option value="Lain-lain">Lain-lain</option>
+                   </select>
+              </div>
+                
+              <label for="inputNonKomp" class="col-sm-2 control-label">Merk :</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="merkbarang" id="inputNonKomp" placeholder="Merk Barang">
+              </div>
+                
+              <label for="inputNonKomp" class="col-sm-2 control-label">Jumlah :</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="jumlahbarang" id="inputNonKomp" placeholder="Jumlah Barang">
+              </div>
+                
+               <label for="inputNonKomp" class="col-sm-2 control-label">Lokasi Barang :</label>
+              <div class="col-sm-10">
+                  <select name="lokasibarang" class="form-control">
+                    <option value="Laboratorium 1">Laboratorium 1</option>
+                    <option value="Laboratorium 2">Laboratorium 2</option>
+                    <option value="Laboratorium 3">Laboratorium 3</option>
+                    <option value="Laboratorium 4">Laboratorium 4</option>
+                    <option value="Gudang">Gudang</option>
+                   </select>
+              </div>
+                
+              <label for="inputNonKomp" class="col-sm-2 control-label">Keterangan :</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="keteranganbarang" id="inputNonKomp" placeholder="Keterangan Barang">
+              </div>
+            <br>
+            <br>
+            <div class="text-center">
+              <button class="btn btn-default" type="submit">Add</button>
+              <button class="btn btn-default" type="submit">Edit</button>
+              <button class="btn btn-default" type="submit">Delete</button>
+            </div>
+          </form>
+         
+         
+            <br>
+            <div >
+              <table class="table table-bordered">
+              
+                <tr>
+                  <td class="info">No.</td>
+                  <td class="info">ID Barang</td>
+                  <td class="info">Nama Barang</td>
+                  <td class="info">Jenis Barang</td>
+                  <td class="info">Merk</td>
+                  <td class="info">Jumlah</td>
+                  <td class="info">Lokasi</td>
+                  <td class="info">Keterangan</td>
+                </tr>
+                  
+                  
+                  <?php
+                  $i=0;
+                  foreach ($table->result()  as $row){
+                       echo ' <tr>
+                  <td class="info">'.$i++.'</td>
+                  
+                  <td class="info">'.$row->id_nonkomp.'</td>
+                  <td class="info">'.$row->nama_nonkomp.'</td>
+                  <td class="info">'.$row->Jenis_nonkomp.'</td>
+                  <td class="info">'.$row->merk_nonkomp.'</td>
+                  <td class="info">'.$row->jumlah_nonkomp.'</td>
+                  <td class="info">'.$row->lokasi_nonkomp.'</td>
+                  <td class="info">'.$row->keterangan_nonkomp.'</td>
+                </tr>';
+                  }
+                 
+                  ?>
+                
+            
+              </table>
+              
+            </div>
+            </form>       
+
+          </div>
           
-          
-        </form>
-      <p class="pad"><br />
-      </p>
-  </div>
-  </div>
-  </div>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+</div>
 </body>
