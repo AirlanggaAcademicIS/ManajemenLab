@@ -15,8 +15,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>/penjadwalan">Scheduling</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>/history">History</a>
+             <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">	History</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Komputer</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/history">Non-Komputer</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>/eticketing">E-Ticketing</a>
