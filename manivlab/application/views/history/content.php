@@ -32,6 +32,64 @@
 
   <div class="content">
       <br><br>
-    <center><h1>This is History page</h1></center>
+    <center>
+      <h1> HISTORY</h1></center>
+    
   </div>
+  
+  <div class="rightside">
+            <div class="page-head">
+                <h1>&nbsp;</h1>
+                <p>&nbsp;</p>
+            </div>
+            <div class="content">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="box">
+    <div class="box-title"> </div><!-- /.box-title -->
+                            <div class="box-body">
+                               <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        
+                                        <th>NO</th>
+                                        <th>DARI</th>
+                                        <th>TGL KELUHAN</th>
+                                        <th>LABKOM</th>
+                                        <th>SUBJECT</th>
+                                        <th>ALASAN</th>
+                                        <th>ID_BARANG</th>
+                                        <th>MERK</th>
+                                        <th>KELUHAN</th>
+                                        <th>TGL IDENTIFIKASI</th>
+                                        <th>IDENTIFIKASI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($table -> result() as $row) {?>
+                                    <tr>
+                                        <td><?php echo $row->no; ?></td>
+                                        <td><?php echo $row->dari; ?></td>
+                                        <td><?php echo $row->tanggal; ?></td>
+                                        <td><?php echo $row->labkom; ?> (<?php echo $row->object; ?>)</td
+                                        ><td><?php echo $row->kepada; ?></td>
+                                        <td><?php echo $row->alasan;?></td>
+                                        <td> </td>
+                                       <td> </td>
+                                       <td> </td>
+                                       <td> </td>
+                                       <td> </td>
+                                       
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- /.box -->
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+            <!-- Main row --><!-- /.row -->
+        </div>
+    </div>
 </body>
