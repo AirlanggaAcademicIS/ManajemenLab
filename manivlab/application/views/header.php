@@ -13,10 +13,9 @@
     
     
     <!-- tambahan java script jquery -->
-   <script src="../assets/js/plugins/jquery-1.9.1.min.js"></script>
-   <script src="../assets/js/plugins/bootstrap.min.js"></script>
+   <script src="public/plugins/jquery-1.9.1.min.js"></script>
+   <script src="public/plugins/bootstrap.min.js"></script>
 	
 
       
   </head>
-

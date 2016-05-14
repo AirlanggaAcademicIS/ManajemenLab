@@ -106,14 +106,12 @@
      <label for="tahunbeli_komp">Tahun Pembelian:</label>
      <select name="tahunbeli_komp" class="form-control" id="tahunbeli_komp">
        <option>2016</option>
-         
-      <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
-   
      </select>
+       
+                
+<!--   date picker input -->
+       <input  type="text" class="datepicker" id="tanggal_masuk" name="tanggal_masuk" value="<?php echo date('d-m-Y')?>">
+      
 </div>
 <br>
 <div class="container">
@@ -166,4 +164,9 @@
     
      <script src='public/plugins/jquery.dataTables.min.js'></script>
      <script src='public/datepicker/bootstrap-datepicker.js'></script>
+    <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
 </body>
