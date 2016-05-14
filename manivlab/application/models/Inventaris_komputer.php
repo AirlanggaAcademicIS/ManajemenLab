@@ -8,10 +8,12 @@ class Inventaris_Komputer extends CI_Model {
 		parent::__construct();
 	}
 	
-	public function insertkomp($id,$kondisi, $lokasi_komp, $merk, $kecepatan, $socket, $merkmotherboard, $modelmotherboard, $nortbridge, $southbridge, $tiperam, $kapasitas, $pc, $macaddress, $tahunbeli){
+public function insertkomp($kode, $nama_barang, $lokasi_komp, $merk, $kecepatan, $socket, $merkmotherboard, $modelmotherboard, $northbridge, $southbridge, $tiperam, $kapasitas, $pc, $macaddress, $tahunbeli){
+	
 		$data = array(
-		  'id' => $id,
+		
 		  'kode_barang' => $kode,
+          'nama_barang' => $nama_barang,
 		  'lokasi_komp' => $lokasi_komp,
 		  'merk_processor' => $merk,
 		  'kecepatan_processor' => $kecepatan,
@@ -25,7 +27,9 @@ class Inventaris_Komputer extends CI_Model {
 		  'pc_komp'=> $pc,
 		  'macaddress_komp'=> $macaddress,
 		  'tahunbeli_komp'=> $tahunbeli,
-		);
+		  
+		  );
+		
 		
 		$this->db->insert('komputer',$data);
 		}

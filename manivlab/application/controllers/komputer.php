@@ -22,6 +22,8 @@ class Komputer extends CI_Controller
 	  $this->load->view("inventaris/komputer.php");
 	  }
   public function insertkomp (){
+	  $kode = $this -> input->post('kode_barang');
+      $nama_barang = $this -> input->post('nama_barang');
 	  $lokasi_komp= $this -> input->post('lokasi_komp');
 	  $merk_processor= $this -> input->post('merk_processor');
 	  $kecepatan_processor= $this -> input->post('kecepatan_processor');
@@ -37,7 +39,7 @@ class Komputer extends CI_Controller
 	  $tahunbeli_komp= $this -> input->post('tahunbeli_komp');
 	  
 	  $this->load->model('Inventaris_komputer');
-	  $this->Inventaris_komputer->insertkomp($lokasi_komp,$merk_processor,$kecepatan_processor,$socket_processor,$merkmotherboard_komp,$modelmotherboard_komp,$northbridge_komp,$southbridge_komp,$tiperam_komp,$kapasitas_komp,$pc_komp,$macaddress_komp,$tahunbeli_komp);
+	  $this->Inventaris_komputer->insertkomp($kode,$nama_barang,$lokasi_komp,$merk_processor,$kecepatan_processor,$socket_processor,$merkmotherboard_komp,$modelmotherboard_komp,$northbridge_komp,$southbridge_komp,$tiperam_komp,$kapasitas_komp,$pc_komp,$macaddress_komp,$tahunbeli_komp);
   }
 
 
