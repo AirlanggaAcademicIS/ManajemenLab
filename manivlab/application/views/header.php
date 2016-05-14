@@ -13,7 +13,7 @@
     
     
     <!-- tambahan java script jquery -->
-   <script src="public/plugins/jquery-1.9.1.min.js"></script>
+   <script src="public/jquery.min.js"></script>
    <script src="public/plugins/bootstrap.min.js"></script>
 	
 
