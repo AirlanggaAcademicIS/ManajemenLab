@@ -37,10 +37,17 @@ class Komputer extends CI_Controller
 	  $pc_komp= $this -> input->post('pc_komp');
 	  $macaddress_komp= $this -> input->post('macaddress_komp');
 	  $tahunbeli_komp= $this -> input->post('tahunbeli_komp');
+	  $tanggal_transaksi= $this -> input->post('tanggal_transaksi');
 	  
 	  $this->load->model('Inventaris_komputer');
-	  $this->Inventaris_komputer->insertkomp($kode,$nama_barang,$lokasi_komp,$merk_processor,$kecepatan_processor,$socket_processor,$merkmotherboard_komp,$modelmotherboard_komp,$northbridge_komp,$southbridge_komp,$tiperam_komp,$kapasitas_komp,$pc_komp,$macaddress_komp,$tahunbeli_komp);
+	  $temp=$this->Inventaris_komputer->insertkomp($kode,$nama_barang,$lokasi_komp,$merk_processor,$kecepatan_processor,$socket_processor,$merkmotherboard_komp,$modelmotherboard_komp,$northbridge_komp,$southbridge_komp,$tiperam_komp,$kapasitas_komp,$pc_komp,$macaddress_komp,$tahunbeli_komp, $tanggal_transaksi );
+	  
+	  if($temp){
+		  redirect ('/inventaris/','refresh');
+	  }
+	  
   }
+  
 
 
 }

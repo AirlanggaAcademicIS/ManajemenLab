@@ -8,7 +8,7 @@ class Inventaris_Komputer extends CI_Model {
 		parent::__construct();
 	}
 	
-public function insertkomp($kode, $nama_barang, $lokasi_komp, $merk, $kecepatan, $socket, $merkmotherboard, $modelmotherboard, $northbridge, $southbridge, $tiperam, $kapasitas, $pc, $macaddress, $tahunbeli){
+public function insertkomp($kode, $nama_barang, $lokasi_komp, $merk, $kecepatan, $socket, $merkmotherboard, $modelmotherboard, $northbridge, $southbridge, $tiperam, $kapasitas, $pc, $macaddress, $tahunbeli, $tanggal_transaksi){
 	
 		$data = array(
 		
@@ -27,11 +27,13 @@ public function insertkomp($kode, $nama_barang, $lokasi_komp, $merk, $kecepatan,
 		  'pc_komp'=> $pc,
 		  'macaddress_komp'=> $macaddress,
 		  'tahunbeli_komp'=> $tahunbeli,
+		  'tanggal_transaksi'=> $tanggal_transaksi,
 		  
 		  );
 		
 		
 		$this->db->insert('komputer',$data);
+		return ($this->db->affected_rows() != 1) ? false : true;
 		}
 		
 	public function gettablekomputer(){
