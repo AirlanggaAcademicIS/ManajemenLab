@@ -39,6 +39,16 @@ public function insertkomp($kode, $nama_barang, $lokasi_komp, $merk, $kecepatan,
 	public function gettablekomputer(){
 		return $this->db->get('komputer');
 		}
+		
+	public function GetIdbyTanggal($start_date,$kategori) {
+ 		$this->db->where('tanggal_transaksi >=',$start_date);
+        $this->db->from('komputer');
+        $this->db->order_by("tanggal", "desc");
+  $query = $this->db->get();
+        // echo $this->db->last_query();
+
+        return $query->result();
+ }
 	
 	
 }
