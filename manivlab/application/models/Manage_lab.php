@@ -8,16 +8,16 @@ class Manage_lab extends CI_Model {
 		parent::__construct();
 	}
 	
-	public function insertmanagelab($kategori, $kode_barang, $nama_barang, $kondisi_barang, $lokasibarang_awal, $lokasibarang_akhir, $deskripsibarang){
+	public function insertmanagelab($kode_barang, $nama_barang, $tanggal_transaksi, $kondisi_barang, $lokasibarang_awal, $lokasibarang_akhir, $Deskripsi){
 		$data = array(
 		'id' => "test",
-		'kategori' => $kategori,
 		'kode_barang' => $kode_barang,
 		'nama_barang' => $nama_barang,
+		'tanggal_transaksi' => $tanggal_transaksi,
 		'kondisi_barang' => $kondisi_barang,
 		'lokasibarang_awal' => $lokasibarang_awal,
 		'lokasibarang_akhir' => $lokasibarang_akhir,
-		'deskripsi_barang' => $deskripsibarang,
+		'Deskripsi' => $Deskripsi,
 		);
 		
 		$this->db->insert('manajemen_barang',$data);
@@ -25,4 +25,17 @@ class Manage_lab extends CI_Model {
 	public function gettablemanajemen_barang(){
 		return $this->db->get('manajemen_barang');
 		}
+		
+	public function getKomputer(){
+		$query =  $this->db->get('komputer');
+		return $query->result();
+		}	
+		
+	public function getKomputerByKodeBarang($kode_barang){
+		$this->db->where("kode_barang",$kode_barang);
+        $this->db->from('komputer'); 
+        $query = $this->db->get();
+
+        return $query->result();
+	}	
 }
