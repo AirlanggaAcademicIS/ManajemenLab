@@ -29,22 +29,32 @@
             </li>
         </ul>
     </nav>
-    
-   <div class="index">
-		<div class="calendar" id="evencal">
+    <br><br>
+        <h1><center><strong> Jadwal Penggunaan Laboratorium Komputer</strong></center></h1>
+        <br><br>
+    <div class="index" id="evencal">
+		<div class="calendar" id="calendar">
 			<?php echo $notes?>
 		</div>
-		<div class="event_detail" id="evencal">
-			<h2 class="s_date">Detail Event <?php echo "$day $month $year";?></h2>
-			<div class="detail_event" id="evencal">
+		<div class="event_detail" id="event_detail">
+			<h3 class="s_date">Kegiatan pada <?php echo "$day $month $year";?></h3>
+			<div class="detail_event">
 				<?php 
 					if(isset($events)){
 						$i = 1;
 						foreach($events as $e){
 						 if($i % 2 == 0){
-								echo '<div class="info1"><h4>'.$e['time'].'<img src="'.base_url().'css/images/delete.png" class="delete" alt="" title="delete this event" day="'.$day.'" val="'.$e['id'].'" /></h4><p>'.$e['event'].'</p></div>';
+								echo '<div class="info1">
+                                <h4>'.$e['time'].'-'.$e['time1'].'<img src="'.base_url().'public/images/calendar/delete.png" class="delete" alt="" title="delete this event" day="'.$day.'" val="'.$e['id'].'" /></h4>
+                                <p>Kegiatan: '.$e['event'].'</p>
+                                <p>PJMA: '.$e['pjma'].'</p>
+                                </div>';
 							}else{
-								echo '<div class="info2"><h4>'.$e['time'].'<img src="'.base_url().'css/images/delete.png" class="delete" alt="" title="delete this event" day="'.$day.'" val="'.$e['id'].'" /></h4><p>'.$e['event'].'</p></div>';
+								echo '<div class="info2">
+                                <h4>'.$e['time'].'-'.$e['time1'].'<img src="'.base_url().'public/images/calendar/delete.png" class="delete" alt="" title="delete this event" day="'.$day.'" val="'.$e['id'].'" /></h4>
+                                <p>Kegiatan: '.$e['event'].'</p>
+                                <p>PJMA: '.$e['pjma'].'</p>
+                                </div>';
 							} 
 							$i++;
 						}
@@ -55,12 +65,10 @@
                 
 				<input type="button" name="add" value="Add Event" val="<?php echo $day;?>" class="add_event"/>
                 
-                <br><br><br>
                 
 			</div>
 		</div>
 	</div>
-     
 	<script>
 		$(".detail").live('click',function(){
 			$(".s_date").html("Detail Event for "+$(this).attr('val')+" <?php echo "$month $year";?>");
@@ -77,9 +85,9 @@
 						var i = 1;
 						$.each(data.data, function(index, value) {
 						    if(i % 2 == 0){
-								html = html+'<div class="info1"><h4>'+value.time+'<img src="<?php echo base_url();?>public/images/calendar/delete.png" class="delete" alt="" title="delete this event" day="'+day+'" val="'+value.id+'" /></h4><p>'+value.event+'</p></div>';
+								html = html+'<div class="info1"><h4>'+value.time+'-'+value.time1+'<img src="<?php echo base_url();?>public/images/calendar/delete.png" class="delete" alt="" title="delete this event" day="'+day+'" val="'+value.id+'" /></h4><p>Kegiatan: '+value.event+'</p><p>PJMA: '+value.pjma+'</p></div>';
 							}else{
-								html = html+'<div class="info2"><h4>'+value.time+'<img src="<?php echo base_url();?>public/images/calendar/delete.png" class="delete" alt="" title="delete this event" day="'+day+'" val="'+value.id+'" /></h4><p>'+value.event+'</p></div>';
+								html = html+'<div class="info2"><h4>'+value.time+'-'+value.time1+'<img src="<?php echo base_url();?>public/images/calendar/delete.png" class="delete" alt="" title="delete this event" day="'+day+'" val="'+value.id+'" /></h4><p>Kegiatan: '+value.event+'</p><p>PJMA: '+value.pjma+'</p></div>';
 							} 
 							i++;
 						});
@@ -126,7 +134,7 @@
 		});
 </script>
 </body>
-
+<br><br><br>
 <footer id="footer-main">
     <div class="container">
             <div class="row">

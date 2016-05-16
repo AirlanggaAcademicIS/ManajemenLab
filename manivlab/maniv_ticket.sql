@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2016 at 06:09 PM
--- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- Generation Time: May 16, 2016 at 03:19 PM
+-- Server version: 5.6.24
+-- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `maniv_ticket`
 --
-CREATE DATABASE IF NOT EXISTS `maniv_ticket` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `maniv_ticket`;
 
 -- --------------------------------------------------------
 
@@ -33,9 +31,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
   `ip_address` varchar(45) NOT NULL DEFAULT '0',
   `user_agent` varchar(120) NOT NULL,
   `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
-  `user_data` text NOT NULL,
-  PRIMARY KEY (`session_id`),
-  KEY `last_activity_idx` (`last_activity`)
+  `user_data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -48,6 +44,49 @@ INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `events`
+--
+
+CREATE TABLE IF NOT EXISTS `events` (
+  `event_date` date NOT NULL,
+  `total_events` int(50) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`event_date`, `total_events`) VALUES
+('2016-05-12', 2),
+('2016-05-18', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_detail`
+--
+
+CREATE TABLE IF NOT EXISTS `event_detail` (
+  `idevent` int(11) NOT NULL,
+  `event_date` date NOT NULL,
+  `event_time` time NOT NULL,
+  `event_time_to` time DEFAULT NULL,
+  `event` varchar(200) NOT NULL,
+  `PJMA` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `event_detail`
+--
+
+INSERT INTO `event_detail` (`idevent`, `event_date`, `event_time`, `event_time_to`, `event`, `PJMA`) VALUES
+(31, '2016-05-12', '01:00:00', '02:00:00', 'TES 1', 'PJMA 1'),
+(33, '2016-05-12', '02:00:00', '03:00:00', 'TES 2', 'PJMA 2'),
+(35, '2016-05-18', '07:06:00', '13:17:00', 'jrfdkljk', 'jhfd');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ticket_iden`
 --
 
@@ -56,8 +95,7 @@ CREATE TABLE IF NOT EXISTS `ticket_iden` (
   `dari` varchar(100) NOT NULL,
   `tanggal` date NOT NULL,
   `identifikasi` text NOT NULL,
-  `status` enum('sudah diidentifikasi') NOT NULL,
-  PRIMARY KEY (`no`)
+  `status` enum('sudah diidentifikasi') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -75,10 +113,9 @@ INSERT INTO `ticket_iden` (`no`, `dari`, `tanggal`, `identifikasi`, `status`) VA
 --
 
 CREATE TABLE IF NOT EXISTS `ticket_labkom` (
-  `id_labkom` int(3) NOT NULL AUTO_INCREMENT,
-  `labkom` varchar(220) NOT NULL,
-  PRIMARY KEY (`id_labkom`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `id_labkom` int(3) NOT NULL,
+  `labkom` varchar(220) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ticket_labkom`
@@ -97,14 +134,13 @@ INSERT INTO `ticket_labkom` (`id_labkom`, `labkom`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `ticket_login` (
-  `id_user` int(2) NOT NULL AUTO_INCREMENT,
+  `id_user` int(2) NOT NULL,
   `nama_user` varchar(20) NOT NULL,
   `pass_user` varchar(20) NOT NULL,
   `nama` varchar(200) NOT NULL,
   `level` enum('1','2') NOT NULL,
-  `status` enum('1','0') NOT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `status` enum('1','0') NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ticket_login`
@@ -121,11 +157,10 @@ INSERT INTO `ticket_login` (`id_user`, `nama_user`, `pass_user`, `nama`, `level`
 --
 
 CREATE TABLE IF NOT EXISTS `ticket_object` (
-  `id_object` int(3) NOT NULL AUTO_INCREMENT,
+  `id_object` int(3) NOT NULL,
   `labkom_id` int(3) NOT NULL,
-  `object` varchar(100) NOT NULL,
-  PRIMARY KEY (`id_object`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+  `object` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ticket_object`
@@ -163,8 +198,7 @@ CREATE TABLE IF NOT EXISTS `ticket_pppk` (
   `kepada` varchar(200) NOT NULL,
   `alasan` text NOT NULL,
   `status` enum('waiting','on progress','sudah diidentifikasi') NOT NULL,
-  `tanggal` date NOT NULL,
-  PRIMARY KEY (`no`)
+  `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -175,6 +209,92 @@ INSERT INTO `ticket_pppk` (`no`, `dari`, `labkom`, `object`, `kepada`, `alasan`,
 ('KD-001', 'hamba tuhan', 'LABKOM 1', 'Komp.1', 'Kebakaran', 'tiba2 terbakar', 'on progress', '2016-05-01'),
 ('KD-002', 'Suep', 'LABKOM 2', 'Komp.3', 'XAMPP rusak', 'tidak bisa di start pada file zila....', 'waiting', '2016-05-01'),
 ('KD-003', 'neymar', 'LABKOM 3', 'Komp.2', 'meja AMBROL', 'sudah tua, perlu diganti', 'sudah diidentifikasi', '2016-05-01');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD PRIMARY KEY (`session_id`), ADD KEY `last_activity_idx` (`last_activity`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`event_date`);
+
+--
+-- Indexes for table `event_detail`
+--
+ALTER TABLE `event_detail`
+  ADD PRIMARY KEY (`idevent`), ADD KEY `event_date` (`event_date`);
+
+--
+-- Indexes for table `ticket_iden`
+--
+ALTER TABLE `ticket_iden`
+  ADD PRIMARY KEY (`no`);
+
+--
+-- Indexes for table `ticket_labkom`
+--
+ALTER TABLE `ticket_labkom`
+  ADD PRIMARY KEY (`id_labkom`);
+
+--
+-- Indexes for table `ticket_login`
+--
+ALTER TABLE `ticket_login`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- Indexes for table `ticket_object`
+--
+ALTER TABLE `ticket_object`
+  ADD PRIMARY KEY (`id_object`);
+
+--
+-- Indexes for table `ticket_pppk`
+--
+ALTER TABLE `ticket_pppk`
+  ADD PRIMARY KEY (`no`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `event_detail`
+--
+ALTER TABLE `event_detail`
+  MODIFY `idevent` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `ticket_labkom`
+--
+ALTER TABLE `ticket_labkom`
+  MODIFY `id_labkom` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `ticket_login`
+--
+ALTER TABLE `ticket_login`
+  MODIFY `id_user` int(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `ticket_object`
+--
+ALTER TABLE `ticket_object`
+  MODIFY `id_object` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `event_detail`
+--
+ALTER TABLE `event_detail`
+ADD CONSTRAINT `event_detail_ibfk_1` FOREIGN KEY (`event_date`) REFERENCES `events` (`event_date`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

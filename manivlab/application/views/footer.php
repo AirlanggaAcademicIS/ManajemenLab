@@ -3,8 +3,8 @@
             <div class="row">
                 <div class="col-sm-3 col-lg-9">
                     <h5><b>Manajemen dan Invetaris Laboratorium</b></h5>
-                    <p><b> Coded by </b>
-                  <br>Efrandi Arjadana - Aisyah Shofiyyah - Emilia Fitria - Reza Pramudhika - Ayu Rosalina - M. Reza Pahlevi - Alia Firdauzy</p>
+                    <h8><b> Coded by </b>
+                  <br>Efrandi Arjadana - Aisyah Shofiyyah - Emilia Fitria - Reza Pramudhika - Ayu Rosalina - M. Reza Pahlevi - Alia Firdauzy</h8>
                 </div>
                 <div class="col-sm-3">
                     <ul class="list-unstyled">

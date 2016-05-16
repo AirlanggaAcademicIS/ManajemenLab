@@ -22,7 +22,7 @@ class Penjadwalan_model extends CI_Model {
 	function getEvent($year, $month, $day){
 		$day   = ($day < 10 && strlen($day) == 1)? "0$day" : $day;
 		$year  = ($month < 10 && strlen($month) == 1) ? "$year-0$month-$day" : "$year-$month-$day";
-		$query = $this->db->select('idevent as id, event_time as time, event')->order_by('event_time')->get_where('event_detail', array('event_date' => $year));
+		$query = $this->db->select('idevent as id, event_time as time, event_time_to as time1, event, pjma')->order_by('event_time')->get_where('event_detail', array('event_date' => $year));
 		if($query->num_rows() > 0){
 			return $query->result_array();
 		}else{
@@ -31,17 +31,17 @@ class Penjadwalan_model extends CI_Model {
 	}
 	
 	// insert event
-	function addEvent($year, $month, $day, $time, $event){	
+	function addEvent($year, $month, $day, $time, $time1, $event, $pjma){	
 		$day   = (strlen($day) == 1)? "0$day" : $day;
 		$month = (strlen($month) == 1)? "0$month" : $month;
 		
 		$check = $this->db->get_where('events', array('event_date' => "$year-$month-$day"));
 		if($check->num_rows() > 0){
 			$this->db->query("UPDATE events SET total_events = total_events + 1 WHERE event_date = ?", array("$year-$month-$day"));
-			$this->db->insert('event_detail', array('event_date' => "$year-$month-$day", 'event_time' => $time, 'event' => $event));
+			$this->db->insert('event_detail', array('event_date' => "$year-$month-$day", 'event_time' => $time, 'event_time_to' => $time1, 'event' => $event, 'pjma' => $pjma));
 		}else{
 			$this->db->insert('events', array('event_date' => "$year-$month-$day", 'total_events' => 1));
-		    $this->db->insert('event_detail', array('event_date' => "$year-$month-$day", 'event_time' => $time, 'event' => $event));
+		    $this->db->insert('event_detail', array('event_date' => "$year-$month-$day", 'event_time' => $time, 'event_time_to' => $time1, 'event' => $event, 'pjma' => $pjma));
 		}
 		
 	}

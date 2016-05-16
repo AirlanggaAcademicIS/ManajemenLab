@@ -19,13 +19,15 @@ function index($year = null, $month = null, $day = null){
 		
 		$date      = $this->penjadwalan->getDateEvent($year, $month);
 		$cur_event = $this->penjadwalan->getEvent($year, $month, $day);
+        $pjma      = $this->penjadwalan->getEvent($year, $month, $day);
 		$data      = array(
 						'notes' => $this->calendar->generate($year, $month, $date),
 						'year'  => $year, 
 						'mon'   => $month,
 						'month' => $this->_month($month),
 						'day'   => $day,
-						'events'=> $cur_event
+						'events'=> $cur_event,
+                        'pjma'  => $pjma
 					);
     
       $this->load->view('header');
@@ -89,8 +91,11 @@ function index($year = null, $month = null, $day = null){
 		$this->form_validation->set_rules('mon', 'Month', 'trim|required|is_natural_no_zero|less_than[13]');
 		$this->form_validation->set_rules('day', 'Day', 'trim|required|is_natural_no_zero|less_than[32]');
 		$this->form_validation->set_rules('hour', 'Hour', 'trim|required');
+        $this->form_validation->set_rules('hour1', 'Hour1', 'trim|required');
 		$this->form_validation->set_rules('minute', 'Minute', 'trim|required');
+        $this->form_validation->set_rules('minute1', 'Minute1', 'trim|required');
 		$this->form_validation->set_rules('event', 'Event', 'trim|required');
+        $this->form_validation->set_rules('pjma', 'Pjma', 'trim|required');
 		
 		if ($this->form_validation->run() == FALSE){
 			echo json_encode(array('status' => false, 'title_msg' => 'Error', 'msg' => 'Please insert valid value'));
@@ -99,8 +104,10 @@ function index($year = null, $month = null, $day = null){
 											 $this->input->post('mon', true), 
 											 $this->input->post('day', true), 
 											 $this->input->post('hour', true).":".$this->input->post('minute', true).":00",
-											 $this->input->post('event', true));
-			echo json_encode(array('status' => true, 'time' => $this->input->post('time', true), 'event' => $this->input->post('event', true)));
+                                             $this->input->post('hour1', true).":".$this->input->post('minute1', true).":00",
+											 $this->input->post('event', true),
+                                             $this->input->post('pjma', true));
+			echo json_encode(array('status' => true, 'time' => $this->input->post('time', true), 'time1' => $this->input->post('time1', true), 'event' => $this->input->post('event', true), 'pjma' => $this->input->post('pjma', true)));
 		}
 	}
 	
