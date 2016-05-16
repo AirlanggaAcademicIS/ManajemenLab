@@ -10,5 +10,13 @@
     <link rel="stylesheet" href="<?php echo base_url();?>public/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo base_url();?>public/css/styles.css">
+    
+    
+   <!-- tambahan java script jquery -->
+   <script src="<?php echo base_url();?>public/jquery.min.js"></script>
+   <script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	
+	
+
       
   </head>

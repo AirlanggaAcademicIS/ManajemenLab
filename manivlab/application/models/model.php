@@ -6,6 +6,27 @@ class Model extends CI_Model {
 		$query = $this->db->query('select * from ticket_pppk order by no desc');
 		return $query;
 	}
+	public function GetpppkbyTanggal($start_date,$end_date,$kategori) {
+		$this->db->where('tanggal >=',$start_date);
+		$this->db->where('tanggal <=',$end_date);
+        $this->db->from('ticket_pppk');
+        $this->db->order_by("tanggal", "desc");
+		$query = $this->db->get();
+        // echo $this->db->last_query();
+
+        return $query->result();
+	}
+	public function GetIdenbyTanggal($start_date,$end_date,$kategori) {
+		$this->db->where('tanggal >=',$start_date);
+		$this->db->where('tanggal <=',$end_date);
+        $this->db->from('ticket_iden');
+        $this->db->order_by("tanggal", "desc");
+		$query = $this->db->get();
+        // echo $this->db->last_query();
+
+        return $query->result();
+	}
+
 
 	/* public function Geticketagian($where= "") {
 		$data = $this->db->query('select * from ticket_labkom '.$where);
@@ -107,4 +128,10 @@ class Model extends CI_Model {
 		return $data;
 	} 
 */
+
+
+	public function GetIden() {
+		$query = $this->db->query('select * from ticket_iden order by no desc');
+		return $query;
+	}
 }

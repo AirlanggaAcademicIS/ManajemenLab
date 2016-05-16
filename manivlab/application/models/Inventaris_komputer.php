@@ -8,30 +8,47 @@ class Inventaris_Komputer extends CI_Model {
 		parent::__construct();
 	}
 	
-	public function insertkomp($param1, $param2, $param3, $param4, $param5, $param6, $param7, $param8, $param9, $param10, $param11, $param12, $param13){
+public function insertkomp($kode, $nama_barang, $lokasi_komp, $merk, $kecepatan, $socket, $merkmotherboard, $modelmotherboard, $northbridge, $southbridge, $tiperam, $kapasitas, $pc, $macaddress, $tahunbeli, $tanggal_transaksi){
+	
 		$data = array(
-		  'id_komputer' => "test",
-		  'lokasi_komp' => "test",
-		  'merk_processor' => $param2,
-		  'kecepatan_processor' => $param3,
-		  'socket_processor' => $param4,
-		  'merkmotherboard_komp' => $param5,
-		  'modelmotherboard_komp' => $param6,
-		  'northbridge_komp' => $param7,
-		  'southbridge_komp'=> $param8,
-		  'tiperam_komp'=> $param9,
-		  'kapasitas_komp'=> $param10,
-		  'pc_komp'=> $param11,
-		  'macaddress_komp'=> $param12,
-		  'tahunbeli_komp'=> $param13,
-		);
+		
+		  'kode_barang' => $kode,
+          'nama_barang' => $nama_barang,
+		  'lokasi_komp' => $lokasi_komp,
+		  'merk_processor' => $merk,
+		  'kecepatan_processor' => $kecepatan,
+		  'socket_processor' => $socket,
+		  'merkmotherboard_komp' => $merkmotherboard,
+		  'modelmotherboard_komp' => $modelmotherboard,
+		  'northbridge_komp' => $northbridge,
+		  'southbridge_komp'=> $southbridge,
+		  'tiperam_komp'=> $tiperam,
+		  'kapasitas_komp'=> $kapasitas,
+		  'pc_komp'=> $pc,
+		  'macaddress_komp'=> $macaddress,
+		  'tahunbeli_komp'=> $tahunbeli,
+		  'tanggal_transaksi'=> $tanggal_transaksi,
+		  
+		  );
+		
 		
 		$this->db->insert('komputer',$data);
+		return ($this->db->affected_rows() != 1) ? false : true;
 		}
 		
 	public function gettablekomputer(){
 		return $this->db->get('komputer');
 		}
+		
+	public function GetIdbyTanggal($start_date,$kategori) {
+ 		$this->db->where('tanggal_transaksi >=',$start_date);
+        $this->db->from('komputer');
+        $this->db->order_by("tanggal", "desc");
+  $query = $this->db->get();
+        // echo $this->db->last_query();
+
+        return $query->result();
+ }
 	
 	
 }

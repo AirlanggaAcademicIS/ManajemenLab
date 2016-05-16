@@ -23,18 +23,29 @@ class Managelab extends CI_Controller
 	  $this->load->view("managelab/managekomputer.php");
 	  }
   public function insertmanagelab(){
-	  
-	  $kategori= $this -> input->post('kategori');
 	  $kode_barang= $this -> input->post('kode_barang');
 	  $nama_barang= $this -> input->post('nama_barang');
+	  $tanggal_transaksi= $this -> input->post('tanggal_transaksi');
 	  $kondisi_barang= $this -> input->post('kondisi_barang');
 	  $lokasibarang_awal= $this -> input->post('lokasibarang_awal');
 	  $lokasibarang_akhir= $this -> input->post('lokasibarang_akhir');
-	  $deskripsi_barang= $this -> input->post('deskripsi_barang');
+	  $Deskripsi= $this -> input->post('Deskripsi');
 	  
 	  $this->load->model('Manage_lab');
-	  $this->Manage_lab->insertmanagelab($kategori, $kode_barang, $nama_barang, $kondisi_barang, $lokasibarang_awal, $lokasibarang_akhir, $deskripsibarang);
+	  $this->Manage_lab->insertmanagelab($kode_barang, $nama_barang, $tanggal_transaksi, $kondisi_barang, $lokasibarang_awal, $lokasibarang_akhir, $Deskripsi);
   }
+   public function getKomputer(){
+   $this->load->model("Manage_lab");
+   $info = $this->Manage_lab->getKomputer();
+   echo json_encode($info);
+   }
+   
+   public function getKomputerByKodeBarang(){
+	$kode_barang= $this -> input->post('kode_barang');   
+   $this->load->model("Manage_lab");
+   $info = $this->Manage_lab->getKomputerByKodeBarang($kode_barang);
+   echo json_encode($info);
+   }
  
 
 

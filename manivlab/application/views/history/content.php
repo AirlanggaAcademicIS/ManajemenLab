@@ -1,3 +1,20 @@
+<head>
+	
+	<!-- start: Meta -->
+	<meta charset="utf-8">
+	<title>History Manivlab</title>
+    <script src='../public/jquery.js'></script>
+	<link href='../public/css/datatables.css' rel='stylesheet' type='text/css'>
+    <link href='../public/css/dataTables.bootstrap.css' rel='stylesheet' type='text/css'>
+    <link href='../public/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+    
+    <script src='../public/jquery.dataTables.min.js'></script>
+    
+    
+
+</head>
+
+
 <body>
             <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
         <img class="navbar-brand" src="<?php echo base_url();?>public/images/logomanivlab.png">
@@ -19,8 +36,10 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">	History</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Komputer</a>
                     <a class="dropdown-item" href="<?php echo base_url();?>/history">Non-Komputer</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/history/viewkomputer">Komputer</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/history/viewhistorylaporan">Laporan</a>
+
                 </div>
             </li>
             <li class="nav-item">
@@ -36,17 +55,63 @@
       <h1> HISTORY</h1></center>
     
   </div>
+ 
+ 
+ 
+ <div class="box-content" style=" background: #D6D6D6 !important;">
+						<form class="form-horizontal">
+							<fieldset>
+							  <div class="control-group">
+								<label class="control-label">Pilih Kategori Pencarian</label><br/>
+								<div class="controls" >
+								  
+								  <!-- <div class="controls"> -->								  
+								  <ul>
+								    <select id="selectSortBulan" name="selectKategori" data-rel="chosen" style="float:left">
+								      <option value="januari">januari</option>
+								      <option value="februari">februari</option>
+								      <option value="maret">maret</option>
+								      <?php foreach ($kategori as $value):?>
+								      
+								      
+								      }
+									  			
+								      
+								      
+								      <?php endforeach; ?>
+							        </select>
+							      </ul>
+								  <!-- </div> -->
+									<!-- </div> --><button id="CariRekap" type="button"  class="btn btn-info">Cari Rekap</button>
+								</div>
+							  </div>
+							</fieldset>
+						</form>
+</div><!--/span-->
+
+			</div>
+ 
+ 
+ 
+ <ul>
+
+</ul>
+ 
+ 
+<ul>
+
+</ul>
+ 
+ 
+ 
+ 
+ 
   
-  <div class="rightside">
-            <div class="page-head">
-                <h1>&nbsp;</h1>
-                <p>&nbsp;</p>
-            </div>
-            <div class="content">
+		<div class="box-header" data-original-title >
+						<h2><i class="halflings-icon user"></i><span class="break"></span>History Keluhan Masuk</h2>
+           <div class="content">
               <div class="row">
                 <div class="col-md-12">
-                  <div class="box">
-    <div class="box-title"> </div><!-- /.box-title -->
                             <div class="box-body">
                                <table id="example1" class="table table-bordered table-striped">
                                 <thead>
@@ -58,11 +123,7 @@
                                         <th>LABKOM</th>
                                         <th>SUBJECT</th>
                                         <th>ALASAN</th>
-                                        <th>ID_BARANG</th>
-                                        <th>MERK</th>
-                                        <th>KELUHAN</th>
-                                        <th>TGL IDENTIFIKASI</th>
-                                        <th>IDENTIFIKASI</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,22 +135,128 @@
                                         <td><?php echo $row->labkom; ?> (<?php echo $row->object; ?>)</td
                                         ><td><?php echo $row->kepada; ?></td>
                                         <td><?php echo $row->alasan;?></td>
-                                        <td> </td>
-                                       <td> </td>
-                                       <td> </td>
-                                       <td> </td>
-                                       <td> </td>
                                        
-                                        </td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
                         </div>
-                    </div><!-- /.box -->
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-            <!-- Main row --><!-- /.row -->
-        </div>
+                </div><!-- /.box -->
+             </div><!-- /.col -->
+          </div><!-- /.row -->
+  <div class="row-fluid sortable">		
+				<div class="box span12">
+<div class="box-header" data-original-title style=" background: #D6D6D6 !important;">
+						<h2><i class="halflings-icon user"></i><span class="break"></span>History Tindak Lanjut Keluhan</h2>
+						
+					</div>
+					<div class="box-content">
+						
+						<table id="tabel_identifikasi_keluhan" class="table table-striped table-bordered bootstrap-datatable datatable">
+						  <thead>
+							  <tr>
+										<th>NO</th>
+                                        <th>DARI</th>
+                                        <th>TANGGAL</th>
+                                        <th>IDENTIFIKASI</th>
+                                        
+							  </tr>
+						  </thead>   
+						  <tbody>
+						  	<!-- Pengambilan item list dari database -->
+		                  <?php foreach($table2 -> result() as $row) {?>
+                                    <tr>
+                                        <td><?php echo $row->no; ?></td>
+                                        <td><?php echo $row->dari; ?></td>
+                                        <td><?php echo $row->tanggal; ?></td>
+                                		<td><?php echo $row->identifikasi; ?></td>
+                                    </tr>
+                                    <?php } ?>
+                          </tbody>
+                                </td>
+					  </table>            
+					</div>
+				</div><!--/span-->
+			
+		  </div><!--/row-->          
+        
+       
+        			<div class="box span12">
+	  <div class="box-header" data-original-title style=" background: #D6D6D6 !important;">
+						<h2><i class="halflings-icon user"></i><span class="break"></span>History Barang Masuk</h2>
+						
+					</div>
+					<div class="box-content">
+						
+						<table id="tabel_item_masuk" class="table table-striped table-bordered bootstrap-datatable datatable">
+						  <thead>
+							  <tr>
+										<th>NO</th>
+                                   <!--     <th>NAMA BARANG</th> -->
+                                        <th>MERK</th>
+                                        <th>JUMLAH</th>
+                                      <!--  <th>TANGGAL TRANSAKSI</th> -->
+                                                                                
+							  </tr>
+						  </thead>   
+						  <tbody>
+						  	<!-- Pengambilan item list dari database -->
+		                  <?php foreach($nonkomp -> result() as $row) {?>
+                                    <tr>
+                                        <td><?php echo $row->id_nonkomp; ?></td>
+                               <!--         <td> </td> -->
+                                        <td><?php echo $row->merk_nonkomp; ?></td>
+                                        <td><?php echo $row->jumlah_nonkomp; ?></td>
+                                	<!--	<td> </td> -->
+                                    </tr>
+                                    <?php } ?>
+                          </tbody>
+                                </td>
+					  </table>            
+					</div>
+				</div><!--/span-->
+			
+            
+  		<div class="box span12">
+<div class="box-header" data-original-title style=" background: #D6D6D6 !important;">
+						<h2><i class="halflings-icon user"></i><span class="break"></span>History Barang Keluar</h2>
+						
+					</div>
+					<div class="box-content">
+						
+						<table id="tabel_item_keluar" class="table table-striped table-bordered bootstrap-datatable datatable">
+						  <thead>
+							  <tr>
+										<th>NO</th>
+                                     <!--   <th>NAMA BARANG</th> -->
+                                        <th>LOKASI AWAL</th>
+                                        <th>LOKASI AKHIR</th>
+                                     <!--   <th>TANGGAL TRANSAKSI</th> -->
+                                                                                
+							  </tr>
+						  </thead>   
+						  <tbody>
+						  	<!-- Pengambilan item list dari database -->
+		                  <?php foreach($manajemenbarang -> result() as $row) {?>
+                                    <tr>
+                                        <td><?php echo $row->id_manajemenbarang; ?></td>
+                                     <!--   <td> </td> -->
+                                        <td><?php echo $row->lokasibarang_awal; ?></td>
+                                        <td><?php echo $row->lokasibarang_akhir; ?></td>
+                                	<!--	<td> </td> -->
+                                    </tr>
+                                    <?php } ?>
+                          </tbody>
+                                </td>
+					  </table>            
+					</div>
+		  </div>          
+            
+</div>
+        
+</div>
     </div>
+    
+    
+    <script src="../public/js/history.js"></script>
 </body>
