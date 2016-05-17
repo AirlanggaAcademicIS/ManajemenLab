@@ -39,7 +39,6 @@
                     <a class="dropdown-item" href="<?php echo base_url();?>/history">Non-Komputer</a>
                     <a class="dropdown-item" href="<?php echo base_url();?>/history/viewkomputer">Komputer</a>
                     <a class="dropdown-item" href="<?php echo base_url();?>/history/viewhistorylaporan">Laporan</a>
-
                 </div>
             </li>
             <li class="nav-item">
@@ -52,12 +51,9 @@
   <div class="content">
       <br><br>
     <center>
-      <h1> HISTORY NON-KOMPUTER</h1></center>
+      <h1> HISTORY KOMPUTER</h1></center>
     
   </div>
- 
- 
- 
 <ul>
   <p>&nbsp;</p>
   <p>&nbsp;</p>
@@ -67,14 +63,12 @@
  
  
  
- 
-  <div class="row-fluid sortable">		
-				<div class="box span12">
-<div class="box-header" data-original-title style=" background: #D6D6D6 !important;">
-						<h2><i class="halflings-icon user"></i><span class="break"></span>History Keluhan</h2>
-						
-				  </div>
-		
+ <div class="row-fluid sortable">	
+<div class="box span12">
+
+		<div class="box-header"  data-original-title style=" background: #D6D6D6 !important;" >
+						<h2><i class="halflings-icon user"></i><span class="break"></span>History Keluhan Masuk</h2>
+                        </div>
            <div class="content">
               <div class="row">
                 <div class="col-md-12">
@@ -156,26 +150,28 @@
 						
 						<table id="tabel_item_masuk" class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
-							  <tr>
-										<th>NO</th>
-                                   <!--     <th>NAMA BARANG</th> -->
-                                        <th>MERK</th>
-                                        <th>JUMLAH</th>
-                                      <!--  <th>TANGGAL TRANSAKSI</th> -->
-                                                                                
-							  </tr>
+							 			 <tr>
+                              			<th>NO</th>
+										<th>KODE BARANG</th>
+                                        <th>NAMA BARANG</th>
+                                        <th>TAHUN BELI</th>
+                                        <th>TGL TRANSAKSI</th>
+                                                                          
+							  			</tr>
 						  </thead>   
 						  <tbody>
 						  	<!-- Pengambilan item list dari database -->
-		                  <?php foreach($nonkomp -> result() as $row) {?>
+		                  <?php $count = 1;
+						  foreach($komp -> result() as $row) {?>
                                     <tr>
-                                        <td><?php echo $row->id_nonkomp; ?></td>
-                               <!--         <td> </td> -->
-                                        <td><?php echo $row->merk_nonkomp; ?></td>
-                                        <td><?php echo $row->jumlah_nonkomp; ?></td>
-                                	<!--	<td> </td> -->
+                                        <td class="center" value="<?php echo $row->id?>"><?php echo $count?></td>
+                                        <td><?php echo $row->kode_barang; ?></td>
+                                        <td><?php echo $row->nama_barang; ?> </td>
+                                        <td><?php echo $row->tahunbeli_komp; ?></td>
+                                        <td><?php echo $row->tanggal_transaksi; ?></td>
+                                		
                                     </tr>
-                                    <?php } ?>
+                                    <?php $count++; }?>
                           </tbody>
                                 </td>
 					  </table>            
@@ -194,25 +190,30 @@
 						  <thead>
 							  <tr>
 										<th>NO</th>
-                                     <th>NAMA BARANG</th> 
-                                        <th>LOKASI AWAL</th>
+                                        <th>KODE BARANG</th>
+                                        <th>NAMA BARANG</th>
+										<th>LOKASI AWAL</th>
                                         <th>LOKASI AKHIR</th>
-                                    <th>TANGGAL TRANSAKSI</th> 
+                                        <th>TANGGAL TRANSAKSI</th>
                                                                                 
 							  </tr>
 						  </thead>   
 						  <tbody>
 						  	<!-- Pengambilan item list dari database -->
-		                  <?php foreach($manajemenbarang -> result() as $row) {?>
+		                  <?php 
+						  $count = 1;
+						  foreach($manajemenbarang -> result() as $row) 
+						  {?>
                                     <tr>
-                                        <td><?php echo $row->kode_barang; ?></td>
+                                      <td class="center" value="<?php echo $row->id?>"><?php echo $count?></td>
+                                         <td class="center"><?php echo $row->kode_barang; ?></td>
                                         <td><?php echo $row->nama_barang; ?></td>
 
                                         <td><?php echo $row->lokasibarang_awal; ?></td>
                                         <td><?php echo $row->lokasibarang_akhir; ?></td>
                                			<td><?php echo $row->tanggal_transaksi; ?></td>
                                     </tr>
-                                    <?php } ?>
+                                    <?php $count++;} ?>
                           </tbody>
                                 </td>
 					  </table>            
