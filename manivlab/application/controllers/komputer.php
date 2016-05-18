@@ -13,9 +13,14 @@ class Komputer extends CI_Controller
   public function index()
   {
     # code...
-    $this->load->view('header');
-	$this->load->view('inventaris/komputer.php');
+   
+	
+	$this->load->model('Inventaris_komputer');
+	$data['komputer']=$this->Inventaris_komputer->gettablekomputer();
+	$this->load->view('header');
+	$this->load->view('inventaris/komputer.php',$data);
     $this->load->view('footer');
+
 
   }
   public function inventaris(){
@@ -47,6 +52,8 @@ class Komputer extends CI_Controller
 	  }
 	  
   }
+  
+  
   
 
 

@@ -1,3 +1,12 @@
+
+<style src="public/css/jquery.dataTables.min.css" type="text/css"> </style>
+<style src="public/css/jquery.dataTables.css" type="text/css"> </style>
+<style src="public/css/datatables.css" type="text/css"> </style>
+<script src="public/jquery.js" type="text/javascript"> </script>
+<script src="public/jquery.dataTables.min.js" type="text/javascript"> </script>
+
+
+
 <body>
      <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
         <img class="navbar-brand" src="<?php echo base_url();?>public/images/logomanivlab.png">
@@ -6,8 +15,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>/home">Home </a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>/inventaris">Inventaris<span class="sr-only">(current)</span></a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inventaris</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="<?php echo base_url();?>/Komputer">Komputer</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/Inventaris">Non-Komputer</a>
+                </div>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="<?php echo base_url();?>/managelab">Management Lab</a>
@@ -136,11 +149,12 @@
   <button type="submit" class="btn btn-primary disabled btn-md col-sm-offset-1 col-sm-2">Update</button>
 </div>
   <br> <br>         
-  <table class="table table-bordered">
+  <table class="table table-bordered" id="tbl_komputer">
     <thead>
       <tr>
         <th>No</th>
-        <th>ID Barang</th>
+        <th>Kode Barang</th>
+        <th>Nama Barang</th>
         <th>Lokasi Komputer</th>
         <th>Merk Processor</th>
         <th>Kecepatan Processor(GHz)</th>
@@ -154,29 +168,40 @@
         <th>PC RAM</th>
         <th>MAC Address</th>
         <th>Tahun Pembelian</th>
+        <th>Tanggal Transaksi</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>001</td>
-        <td>Labkom 1</td>
-        <td>Lenovo</td>
-        <td>3.2</td>
-        <td>LGA 1155</td>
-        <td>Lenovo</td>
-        <td>H61M-S2P</td>
-        <td>H61M-S2P</td>
-        <td>Intel Ivy Bridge</td>
-        <td>DDR3</td>
-        <td>2048</td>
-        <td>PC3-10700</td>
-        <td>90-2B-34-7F-57-5C</td>
-        <td>2012</td>
-      </tr>
-     
-    </tbody>
+     <tbody>
+	<!-- Pengambilan item list dari database -->
+   
+		<?php 
+		$count = 1;
+		foreach($komputer as $row) {?>
+  
+       
+        <tr>
+        <td><?php echo $count; ?></td>
+        <td><?php echo $row->kode_barang; ?></td>
+        <td><?php echo $row->nama_barang; ?> </td>
+        <td><?php echo $row->lokasi_komp; ?></td>
+        <td><?php echo $row->merk_processor; ?></td>
+        <td><?php echo $row->kecepatan_processor; ?></td>
+        <td><?php echo $row->socket_processor; ?></td>
+        <td><?php echo $row->merkmotherboard_komp; ?></td>
+        <td><?php echo $row->modelmotherboard_komp; ?></td>
+        <td><?php echo $row->northbridge_komp; ?></td>
+        <td><?php echo $row->southbridge_komp; ?></td>
+        <td><?php echo $row->tiperam_komp; ?></td>
+        <td><?php echo $row->kapasitas_komp; ?></td>
+        <td><?php echo $row->pc_komp; ?></td>
+        <td><?php echo $row->macaddress_komp; ?></td>
+        <td><?php echo $row->tahunbeli_komp; ?></td>
+        <td><?php echo $row->tanggal_transaksi; ?></td>
+        </tr>
+        
+        <?php $count++;} ?>
+        </tbody>
   </table>
 </div>
-    
+    <script src="public/komputer.js" type="text/javascript"> </script>
 </body>
