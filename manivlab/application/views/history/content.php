@@ -158,9 +158,9 @@
 						  <thead>
 							  <tr>
 										<th>NO</th>
-                                   <!--     <th>NAMA BARANG</th> -->
+                                       <th>NAMA BARANG</th>
                                         <th>MERK</th>
-                                        <th>JUMLAH</th>
+                                        <th>TANGGAL TRANSAKSI</th>
                                       <!--  <th>TANGGAL TRANSAKSI</th> -->
                                                                                 
 							  </tr>
@@ -170,9 +170,9 @@
 		                  <?php foreach($nonkomp -> result() as $row) {?>
                                     <tr>
                                         <td><?php echo $row->id_nonkomp; ?></td>
-                               <!--         <td> </td> -->
+                              <td><?php echo $row->nama_nonkomp; ?></td>
                                         <td><?php echo $row->merk_nonkomp; ?></td>
-                                        <td><?php echo $row->jumlah_nonkomp; ?></td>
+                                        <td><?php echo $row->tanggal_transaksi; ?></td>
                                 	<!--	<td> </td> -->
                                     </tr>
                                     <?php } ?>
