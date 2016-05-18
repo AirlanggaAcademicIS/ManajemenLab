@@ -1,4 +1,3 @@
-<script type="text/javascript" src="public/js/jquery.min.js"></script>
 <body>
 
             <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
@@ -9,9 +8,9 @@
                 <a class="nav-link" href="<?php echo base_url();?>/home">Home </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inventaris</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> Inventaris</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?php echo base_url();?>/Komputer">Komputer</a>
+                    <a class="dropdown-item" href="#">Komputer</a>
                     <a class="dropdown-item" href="<?php echo base_url();?>/Inventaris">Non-Komputer</a>
                 </div>
             </li>
@@ -81,17 +80,12 @@
             <div class="form-group">
               <label for="inputNonKomp" class="col-sm-2 control-label">Nama Barang :</label>
               <div class="col-sm-10">  
-                <input type="text" class="form-control" name="namabarang" id="namabarang" placeholder="Nama Barang" required>
+                <input type="text" class="form-control" name="namabarang" id="inputNonKomp" placeholder="Nama Barang" >
               </div>
               
-              <label for="inputNonKomp" class="col-sm-2 control-label">Tanggal Transaksi</label>
-              <div class="col-sm-10">
-                <input type="date" class="form-control" name="tanggal_transaksi" id="tanggal_transaksi" placeholder="tangal_transaksi" required>
-              </div>
-                
               <label for="inputNonKomp" class="col-sm-2 control-label">Jenis Barang :</label>
               <div class="col-sm-10">
-                  <select name="jenisbarang" class="form-control" id="jenisbarang">
+                  <select name="jenisbarang" class="form-control">
                     <option value="Alat Tulis Kantor">Alat Tulis Kantor</option>
                     <option value="Perlengkapan Lab">Perlengkapan Lab</option>
                     <option value="Kebersihan">Kebersihan</option>
@@ -101,17 +95,17 @@
                 
               <label for="inputNonKomp" class="col-sm-2 control-label">Merk :</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="merkbarang" id="merkbarang" placeholder="Merk Barang" required>
+                <input type="text" class="form-control" name="merkbarang" id="inputNonKomp" placeholder="Merk Barang">
               </div>
                 
               <label for="inputNonKomp" class="col-sm-2 control-label">Jumlah :</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="jumlahbarang" id="jumlahbarang" placeholder="Jumlah Barang" required>
+                <input type="text" class="form-control" name="jumlahbarang" id="inputNonKomp" placeholder="Jumlah Barang">
               </div>
                 
                <label for="inputNonKomp" class="col-sm-2 control-label">Lokasi Barang :</label>
               <div class="col-sm-10">
-                  <select name="lokasibarang" class="form-control" id="lokasibarang">
+                  <select name="lokasibarang" class="form-control">
                     <option value="Laboratorium 1">Laboratorium 1</option>
                     <option value="Laboratorium 2">Laboratorium 2</option>
                     <option value="Laboratorium 3">Laboratorium 3</option>
@@ -122,13 +116,14 @@
                 
               <label for="inputNonKomp" class="col-sm-2 control-label">Keterangan :</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="keteranganbarang" id="keterangan" placeholder="Keterangan Barang">
+                <input type="text" class="form-control" name="keteranganbarang" id="inputNonKomp" placeholder="Keterangan Barang">
               </div>
             <br>
             <br>
             <div class="text-center">
-              <button class="btn btn-default" type="submit">Add</button>  
-              <button class="btn btn-default" id="updatedata" type="button">Update</button>
+              <button class="btn btn-default" type="submit">Add</button>
+              <button class="btn btn-default" type="submit">Edit</button>
+              <button class="btn btn-default" type="submit">Delete</button>
             </div>
           </form>
          
@@ -141,13 +136,11 @@
                   <td class="info">No.</td>
                   <td class="info">ID Barang</td>
                   <td class="info">Nama Barang</td>
-                  <td class ="info">Tanggal Transaksi</td>
                   <td class="info">Jenis Barang</td>
                   <td class="info">Merk</td>
                   <td class="info">Jumlah</td>
                   <td class="info">Lokasi</td>
                   <td class="info">Keterangan</td>
-                    <td class ="info">Edit</td>
                 </tr>
                   
                   
@@ -159,19 +152,17 @@
                   
                   <td class="info">'.$row->id_nonkomp.'</td>
                   <td class="info">'.$row->nama_nonkomp.'</td>
-                  <td class="info">'.$row->tanggal_transaksi.'</td>
                   <td class="info">'.$row->Jenis_nonkomp.'</td>
                   <td class="info">'.$row->merk_nonkomp.'</td>
                   <td class="info">'.$row->jumlah_nonkomp.'</td>
                   <td class="info">'.$row->lokasi_nonkomp.'</td>
                   <td class="info">'.$row->keterangan_nonkomp.'</td>
-                  <td class="info"> <button class="btn btn-default edit " type="button" value='.$row->id_nonkomp.'>Edit</button></td>
                 </tr>';
                   }
+                 
                   ?>
                 
             
-                  
               </table>
               
             </div>
@@ -185,6 +176,4 @@
     </div>
     </div>
 </div>
-
-<script src="public/js/edit.js" type="text/javascript"></script>
 </body>
