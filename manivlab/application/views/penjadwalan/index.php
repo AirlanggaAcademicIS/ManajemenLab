@@ -18,8 +18,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>/managelab">Management Lab</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>/penjadwalan">Scheduling<span class="sr-only">(current)</span></a>
+            <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Penjadwalan</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="<?php echo base_url();?>/penjadwalan">Labkom 1</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/penjadwalan_lk2">Labkom 2</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/penjadwalan_lk3">Labkom 3</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/penjadwalan_lk4">Labkom 4</a>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url();?>/history">History</a>
@@ -30,7 +36,7 @@
         </ul>
     </nav>
     <br><br>
-        <h1><center><strong> Jadwal Penggunaan Laboratorium Komputer</strong></center></h1>
+        <h1><center><strong> Jadwal Penggunaan Laboratorium Komputer <?php echo "$idlabkom";?> </strong></center></h1>
         <br><br>
     <div class="index" id="evencal">
 		<div class="calendar" id="calendar">

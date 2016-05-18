@@ -25,6 +25,7 @@
 	<h4><center><strong>Membuat kegiatan untuk tanggal <?php echo "$day $month $year"?></strong></center></h4>
 	<div class="spacer"></div>
 	<table>
+        <tr><td>Labkom <span class="require">*</span></td><td>:</td><td><input type="text" name="idlabkom" id="idlabkom" disabled value = "4"/></td></tr>
 		<tr><td>Mulai <span class="require">*</span></td><td>:</td><td><?php echo "$h&nbsp;:&nbsp;$m";?>&nbsp;:&nbsp;<select name="second" disabled><option value="00">00</option></select></td></tr>
         <tr><td>Sampai <span class="require">*</span></td><td>:</td><td><?php echo "$h1&nbsp;:&nbsp;$m1";?>&nbsp;:&nbsp;<select name="second" disabled><option value="00">00</option></select></td></tr>
 		<tr><td>Event <span class="require">*</span></td><td>:</td><td><input type="text" name="event" id="event" maxlength="50" size="50" /></td></tr>
@@ -44,7 +45,7 @@
 				type: 'POST',
 				dataType: 'json',
 				url: "<?php echo site_url("penjadwalan/do_add");?>",
-				data:{<?php echo "year:$year,mon:$mon,day:$day";?>, hour:$('#hour').val(), minute: $('#minute').val(),hour1:$('#hour1').val(), minute1: $('#minute1').val(), event:$('#event').val(), pjma:$('#pjma').val()},
+				data:{<?php echo "year:$year,mon:$mon,day:$day";?>, hour:$('#hour').val(), minute: $('#minute').val(),hour1:$('#hour1').val(), minute1: $('#minute1').val(), event:$('#event').val(), pjma:$('#pjma').val(),idlabkom:$('#idlabkom').val()},
 				success: function(data) {
 					if(data.status){
 						//$.fn.colorbox.close(data);

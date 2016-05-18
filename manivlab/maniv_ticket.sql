@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 16, 2016 at 03:38 PM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Host: 127.0.0.1
+-- Generation Time: May 18, 2016 at 03:50 PM
+-- Server version: 5.6.24
+-- PHP Version: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -67,22 +67,23 @@ INSERT INTO `events` (`event_date`, `total_events`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `event_detail` (
-`idevent` int(11) NOT NULL,
+  `idevent` int(11) NOT NULL,
   `event_date` date NOT NULL,
   `event_time` time NOT NULL,
   `event_time_to` time DEFAULT NULL,
   `event` varchar(200) NOT NULL,
-  `PJMA` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+  `PJMA` varchar(100) DEFAULT NULL,
+  `idlabkom` int(3) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `event_detail`
 --
 
-INSERT INTO `event_detail` (`idevent`, `event_date`, `event_time`, `event_time_to`, `event`, `PJMA`) VALUES
-(31, '2016-05-12', '01:00:00', '02:00:00', 'TES 1', 'PJMA 1'),
-(33, '2016-05-12', '02:00:00', '03:00:00', 'TES 2', 'PJMA 2'),
-(35, '2016-05-18', '07:06:00', '13:17:00', 'jrfdkljk', 'jhfd');
+INSERT INTO `event_detail` (`idevent`, `event_date`, `event_time`, `event_time_to`, `event`, `PJMA`, `idlabkom`) VALUES
+(31, '2016-05-12', '01:00:00', '02:00:00', 'TES 1', 'PJMA 1', 1),
+(33, '2016-05-12', '02:00:00', '03:00:00', 'TES 2', 'PJMA 2', 2),
+(35, '2016-05-18', '07:06:00', '13:17:00', 'Tes3', 'Pjma 3', 3);
 
 -- --------------------------------------------------------
 
@@ -91,7 +92,7 @@ INSERT INTO `event_detail` (`idevent`, `event_date`, `event_time`, `event_time_t
 --
 
 CREATE TABLE IF NOT EXISTS `manajemen_barang` (
-`id` int(20) NOT NULL,
+  `id` int(20) NOT NULL,
   `kode_barang` varchar(20) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
   `tanggal_transaksi` date NOT NULL,
@@ -99,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `manajemen_barang` (
   `lokasibarang_awal` varchar(20) NOT NULL,
   `lokasibarang_akhir` varchar(20) NOT NULL,
   `Deskripsi` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `manajemen_barang`
@@ -157,9 +158,9 @@ INSERT INTO `ticket_iden` (`no`, `dari`, `tanggal`, `identifikasi`, `status`) VA
 --
 
 CREATE TABLE IF NOT EXISTS `ticket_labkom` (
-`id_labkom` int(3) NOT NULL,
+  `id_labkom` int(3) NOT NULL,
   `labkom` varchar(220) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ticket_labkom`
@@ -178,13 +179,13 @@ INSERT INTO `ticket_labkom` (`id_labkom`, `labkom`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `ticket_login` (
-`id_user` int(2) NOT NULL,
+  `id_user` int(2) NOT NULL,
   `nama_user` varchar(20) NOT NULL,
   `pass_user` varchar(20) NOT NULL,
   `nama` varchar(200) NOT NULL,
   `level` enum('1','2') NOT NULL,
   `status` enum('1','0') NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ticket_login`
@@ -201,10 +202,10 @@ INSERT INTO `ticket_login` (`id_user`, `nama_user`, `pass_user`, `nama`, `level`
 --
 
 CREATE TABLE IF NOT EXISTS `ticket_object` (
-`id_object` int(3) NOT NULL,
+  `id_object` int(3) NOT NULL,
   `labkom_id` int(3) NOT NULL,
   `object` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ticket_object`
@@ -262,55 +263,55 @@ INSERT INTO `ticket_pppk` (`no`, `dari`, `labkom`, `object`, `kepada`, `alasan`,
 -- Indexes for table `ci_sessions`
 --
 ALTER TABLE `ci_sessions`
- ADD PRIMARY KEY (`session_id`), ADD KEY `last_activity_idx` (`last_activity`);
+  ADD PRIMARY KEY (`session_id`), ADD KEY `last_activity_idx` (`last_activity`);
 
 --
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
- ADD PRIMARY KEY (`event_date`);
+  ADD PRIMARY KEY (`event_date`);
 
 --
 -- Indexes for table `event_detail`
 --
 ALTER TABLE `event_detail`
- ADD PRIMARY KEY (`idevent`), ADD KEY `event_date` (`event_date`);
+  ADD PRIMARY KEY (`idevent`), ADD KEY `event_date` (`event_date`);
 
 --
 -- Indexes for table `manajemen_barang`
 --
 ALTER TABLE `manajemen_barang`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ticket_iden`
 --
 ALTER TABLE `ticket_iden`
- ADD PRIMARY KEY (`no`);
+  ADD PRIMARY KEY (`no`);
 
 --
 -- Indexes for table `ticket_labkom`
 --
 ALTER TABLE `ticket_labkom`
- ADD PRIMARY KEY (`id_labkom`);
+  ADD PRIMARY KEY (`id_labkom`);
 
 --
 -- Indexes for table `ticket_login`
 --
 ALTER TABLE `ticket_login`
- ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- Indexes for table `ticket_object`
 --
 ALTER TABLE `ticket_object`
- ADD PRIMARY KEY (`id_object`);
+  ADD PRIMARY KEY (`id_object`);
 
 --
 -- Indexes for table `ticket_pppk`
 --
 ALTER TABLE `ticket_pppk`
- ADD PRIMARY KEY (`no`);
+  ADD PRIMARY KEY (`no`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -320,27 +321,27 @@ ALTER TABLE `ticket_pppk`
 -- AUTO_INCREMENT for table `event_detail`
 --
 ALTER TABLE `event_detail`
-MODIFY `idevent` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
+  MODIFY `idevent` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `manajemen_barang`
 --
 ALTER TABLE `manajemen_barang`
-MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `ticket_labkom`
 --
 ALTER TABLE `ticket_labkom`
-MODIFY `id_labkom` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_labkom` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `ticket_login`
 --
 ALTER TABLE `ticket_login`
-MODIFY `id_user` int(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_user` int(2) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ticket_object`
 --
 ALTER TABLE `ticket_object`
-MODIFY `id_object` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+  MODIFY `id_object` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- Constraints for dumped tables
 --

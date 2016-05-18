@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Penjadwalan extends CI_Controller
+class Penjadwalan_lk2 extends CI_Controller
 {
 
   public function __construct()
@@ -12,14 +12,13 @@ class Penjadwalan extends CI_Controller
       $this->load->library('calendar', $this->_setting());
   }
     
-function index($year = null, $month = null, $day = null, $idlabkom = 1 ){
+function index($year = null, $month = null, $day = null, $idlabkom = 2  ){
 		$year  = (empty($year) || !is_numeric($year))?  date('Y') :  $year;
 		$month = (is_numeric($month) &&  $month > 0 && $month < 13)? $month : date('m');
 		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');
-		
 		//$date      = $this->penjadwalan->getDateEvent($year, $month);
-		$cur_event = $this->penjadwalan->getEvent($year, $month, $day, 1);
-        $pjma      = $this->penjadwalan->getEvent($year, $month, $day, 1);
+		$cur_event = $this->penjadwalan->getEvent($year, $month, $day, 2);
+        $pjma      = $this->penjadwalan->getEvent($year, $month, $day, 2);
 		$data      = array(
 						'notes' => $this->calendar->generate($year, $month),
 						'year'  => $year, 
@@ -28,7 +27,7 @@ function index($year = null, $month = null, $day = null, $idlabkom = 1 ){
 						'day'   => $day,
 						'events'=> $cur_event,
                         'pjma'  => $pjma,
-                        'idlabkom'  => $idlabkom
+                        'idlabkom' => $idlabkom
 					);
     
       $this->load->view('header');
@@ -66,7 +65,7 @@ function index($year = null, $month = null, $day = null, $idlabkom = 1 ){
 		if ($this->form_validation->run() == FALSE){
 			echo json_encode(array('status' => false, 'title_msg' => 'Error', 'msg' => 'Please insert valid value'));
 		}else{
-			$data = $this->penjadwalan->getEvent($this->input->post('year', true), $this->input->post('mon', true), $this->input->post('day', true), 1);
+			$data = $this->penjadwalan->getEvent($this->input->post('year', true), $this->input->post('mon', true), $this->input->post('day', true), 2);
 			if($data == null){
 				echo json_encode(array('status' => false, 'title_msg' => 'No Event', 'msg' => 'There\'s no event in this date'));
 			}else{			
@@ -140,8 +139,8 @@ function detail($year = null, $month = null, $day = null ){
 		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');
 		
 	//	$date      = $this->penjadwalan->getDateEvent($year, $month);
-		$cur_event = $this->penjadwalan->getEvent($year, $month, $day, 1);
-        $pjma      = $this->penjadwalan->getEvent($year, $month, $day, 1);
+		$cur_event = $this->penjadwalan->getEvent($year, $month, $day, 2);
+        $pjma      = $this->penjadwalan->getEvent($year, $month, $day, 2);
 		$data      = array(
 						'notes' => $this->calendar->generate($year, $month),
 						'year'  => $year, 
