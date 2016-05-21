@@ -12,7 +12,7 @@ class Penjadwalan extends CI_Controller
       $this->load->library('calendar', $this->_setting());
   }
     
-function index($year = null, $month = null, $day = null, $idlabkom = 1 ){
+function index($year = null, $month = null, $day = null, $idlabkom = 1){
 		$year  = (empty($year) || !is_numeric($year))?  date('Y') :  $year;
 		$month = (is_numeric($month) &&  $month > 0 && $month < 13)? $month : date('m');
 		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');
@@ -62,7 +62,6 @@ function index($year = null, $month = null, $day = null, $idlabkom = 1 ){
 		$this->form_validation->set_rules('year', 'Year', 'trim|required|is_natural_no_zero');
 		$this->form_validation->set_rules('mon', 'Month', 'trim|required|is_natural_no_zero|less_than[13]');
 		$this->form_validation->set_rules('day', 'Day', 'trim|required|is_natural_no_zero|less_than[32]');
-		
 		if ($this->form_validation->run() == FALSE){
 			echo json_encode(array('status' => false, 'title_msg' => 'Error', 'msg' => 'Please insert valid value'));
 		}else{
@@ -102,6 +101,7 @@ function index($year = null, $month = null, $day = null, $idlabkom = 1 ){
 		if ($this->form_validation->run() == FALSE){
 			echo json_encode(array('status' => false, 'title_msg' => 'Error', 'msg' => 'Please insert valid value'));
 		}else{
+
 			$this->penjadwalan->addEvent($this->input->post('year', true), 
 											 $this->input->post('mon', true), 
 											 $this->input->post('day', true), 
@@ -134,7 +134,7 @@ function index($year = null, $month = null, $day = null, $idlabkom = 1 ){
 	}
 	
 	// same as index() function
-function detail($year = null, $month = null, $day = null ){
+function detail($year = null, $month = null, $day = null, $idlabkom = 1){
 		$year  = (empty($year) || !is_numeric($year))?  date('Y') :  $year;
 		$month = (is_numeric($month) &&  $month > 0 && $month < 13)? $month : date('m');
 		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');
@@ -149,7 +149,8 @@ function detail($year = null, $month = null, $day = null ){
 						'month' => $this->_month($month),
 						'day'   => $day,
 						'events'=> $cur_event,
-                        'pjma'  => $pjma
+                        'pjma'  => $pjma,
+                        'idlabkom' => $idlabkom,
 					);
     
       $this->load->view('header');

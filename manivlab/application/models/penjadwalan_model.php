@@ -20,6 +20,11 @@ class Penjadwalan_model extends CI_Model {
 		}
 	}
 	
+    
+    function getEventTime($eventTime){
+        
+    }
+    
 	// get event detail for selected date
 	function getEvent($year, $month, $day, $idlabkom){
 		$day   = ($day < 10 && strlen($day) == 1)? "0$day" : $day;

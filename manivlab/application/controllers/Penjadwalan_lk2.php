@@ -31,7 +31,7 @@ function index($year = null, $month = null, $day = null, $idlabkom = 2  ){
 					);
     
       $this->load->view('header');
-      $this->load->view('penjadwalan/index', $data);
+      $this->load->view('penjadwalan/index_lk2', $data);
      //  $this->load->view('footer');
 		
 	}
@@ -61,7 +61,6 @@ function index($year = null, $month = null, $day = null, $idlabkom = 2  ){
 		$this->form_validation->set_rules('year', 'Year', 'trim|required|is_natural_no_zero');
 		$this->form_validation->set_rules('mon', 'Month', 'trim|required|is_natural_no_zero|less_than[13]');
 		$this->form_validation->set_rules('day', 'Day', 'trim|required|is_natural_no_zero|less_than[32]');
-		
 		if ($this->form_validation->run() == FALSE){
 			echo json_encode(array('status' => false, 'title_msg' => 'Error', 'msg' => 'Please insert valid value'));
 		}else{
@@ -133,12 +132,11 @@ function index($year = null, $month = null, $day = null, $idlabkom = 2  ){
 	}
 	
 	// same as index() function
-function detail($year = null, $month = null, $day = null ){
+function detail($year = null, $month = null, $day = null, $idlabkom = 2  ){
 		$year  = (empty($year) || !is_numeric($year))?  date('Y') :  $year;
 		$month = (is_numeric($month) &&  $month > 0 && $month < 13)? $month : date('m');
 		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');
-		
-	//	$date      = $this->penjadwalan->getDateEvent($year, $month);
+		//$date      = $this->penjadwalan->getDateEvent($year, $month);
 		$cur_event = $this->penjadwalan->getEvent($year, $month, $day, 2);
         $pjma      = $this->penjadwalan->getEvent($year, $month, $day, 2);
 		$data      = array(
@@ -148,11 +146,12 @@ function detail($year = null, $month = null, $day = null ){
 						'month' => $this->_month($month),
 						'day'   => $day,
 						'events'=> $cur_event,
-                        'pjma'  => $pjma
+                        'pjma'  => $pjma,
+                        'idlabkom' => $idlabkom
 					);
     
       $this->load->view('header');
-      $this->load->view('penjadwalan/index', $data);
+      $this->load->view('penjadwalan/index_lk2', $data);
      //  $this->load->view('footer');
 		
 	}

@@ -83,7 +83,7 @@
 			$.ajax({
 				type: 'post',
 				dataType: 'json',
-				url: "<?php echo site_url("penjadwalan/detail_event");?>",
+				url: "<?php echo site_url("penjadwalan_lk3/detail_event");?>",
 				data:{<?php echo "year: $year, mon: $mon";?>, day: day},
 				success: function( data ) {
 					var html = '';

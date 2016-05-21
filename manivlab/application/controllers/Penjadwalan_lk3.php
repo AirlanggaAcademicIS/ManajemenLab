@@ -31,7 +31,7 @@ function index($year = null, $month = null, $day = null, $idlabkom = 3 ){
 					);
     
       $this->load->view('header');
-      $this->load->view('penjadwalan/index', $data);
+      $this->load->view('penjadwalan/index_lk3', $data);
      //  $this->load->view('footer');
 		
 	}
@@ -133,7 +133,7 @@ function index($year = null, $month = null, $day = null, $idlabkom = 3 ){
 	}
 	
 	// same as index() function
-function detail($year = null, $month = null, $day = null ){
+function detail($year = null, $month = null, $day = null, $idlabkom = 3 ){
 		$year  = (empty($year) || !is_numeric($year))?  date('Y') :  $year;
 		$month = (is_numeric($month) &&  $month > 0 && $month < 13)? $month : date('m');
 		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');
@@ -148,11 +148,11 @@ function detail($year = null, $month = null, $day = null ){
 						'day'   => $day,
 						'events'=> $cur_event,
                         'pjma'  => $pjma,
-                        'idlabkom'  => $cur_event
+                        'idlabkom'  => $idlabkom
 					);
     
       $this->load->view('header');
-      $this->load->view('penjadwalan/index', $data);
+      $this->load->view('penjadwalan/index_lk3', $data);
      //  $this->load->view('footer');
 		
 	}

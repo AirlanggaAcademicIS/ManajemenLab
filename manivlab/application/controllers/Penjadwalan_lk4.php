@@ -15,8 +15,7 @@ class Penjadwalan_lk4 extends CI_Controller
 function index($year = null, $month = null, $day = null, $idlabkom = 4){
 		$year  = (empty($year) || !is_numeric($year))?  date('Y') :  $year;
 		$month = (is_numeric($month) &&  $month > 0 && $month < 13)? $month : date('m');
-		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');
-		
+		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');	
 	//	$date      = $this->penjadwalan->getDateEvent($year, $month);
 		$cur_event = $this->penjadwalan->getEvent($year, $month, $day, 4);
         $pjma      = $this->penjadwalan->getEvent($year, $month, $day, 4);
@@ -32,7 +31,7 @@ function index($year = null, $month = null, $day = null, $idlabkom = 4){
 					);
     
       $this->load->view('header');
-      $this->load->view('penjadwalan/index', $data);
+      $this->load->view('penjadwalan/index_lk4', $data);
      //  $this->load->view('footer');
 		
 	}
@@ -154,7 +153,7 @@ function detail($year = null, $month = null, $day = null, $idlabkom = 4 ){
 					);
     
       $this->load->view('header');
-      $this->load->view('penjadwalan/index', $data);
+      $this->load->view('penjadwalan/index_lk4', $data);
      //  $this->load->view('footer');
 		
 	}
