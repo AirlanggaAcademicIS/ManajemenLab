@@ -1,0 +1,142 @@
+#evencal{
+	width:900px;
+    height: inherit;
+	margin: 0 auto;
+}
+
+#calendar{
+	width:400px;
+    float: left;
+}
+
+#event_detail{
+    padding-top: 20px;
+	width:500px;
+    float: left;
+}
+
+select{
+	min-width: 50px;
+}
+
+caption {
+    text-align: center;
+	font-size: 160%;
+	font-style: normal;
+	margin-bottom:5px;
+    
+}
+table.date {
+	border: 1px solid #999;
+	border-collapse: collapse;
+	font-family: sans-serif;
+}
+.date th {
+	border: 1px solid #000;
+	text-transform: uppercase;
+    text-align: center;
+	background-color: dimgray;
+	font-size: 80%;
+	color:#F2FFFF;
+	height: 2.5em;
+}
+.date td {
+	border: 1px solid #999;
+	height: 3em;
+	width: 3em;
+	vertical-align: top;
+}
+
+
+a{
+	text-decoration:none;
+}
+
+a.prev_date, a.next_date {
+	font-size:50%;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+
+div.active_date_event, div.date_event,
+div.active_no_event, div.no_event{
+	width:inherit;
+	height:inherit;
+	cursor:pointer;
+}
+
+div.active_date_event:hover, div.date_event:hover,
+div.active_no_event:hover, div.no_event:hover{
+	background-color: azure;
+}
+
+div.active_date_event{
+	background-color: bisque;
+}
+
+div.active_no_event{
+	background-color: #80FFBF;
+}
+
+span.date{
+	font-family: 'roboto';
+	font-size: 13px;
+	font-weight:bold;
+	margin-left:3px;
+	height: 1em;
+	display:block;
+}
+span.event{
+	font-family: 'segoe ui';
+	font-size: 16px;
+	font-weight:bold;
+	text-align:center;
+	padding-top:5px;
+	display:block;
+	color:red;
+}
+
+.weekend_sat {
+	background-color: lightcoral;
+}
+.weekend_sun {
+	background-color: lightcoral;
+}
+
+.require{
+	color: red;
+}
+
+.error_require{
+	background-color: #ffd2d4;
+}
+
+.spacer{
+	clear:both;
+	color:red;
+	text-align:center;
+	font-size:12px;
+	padding: 10px;
+}
+
+.add_event {
+	font-family: Arial, Helvetica, sans-serif;
+	cursor:pointer;
+	font-size: 14px;
+	color: #ffffff;
+	padding: 6px 10px 6px 10px;
+	background: #01b9ec;
+	margin: 10px 0 0 22px;
+}
+
+/* from : http://www.paulund.co.uk/ */
+.info1,.info2,.message{margin:5px 20px 5px 20px; padding:3px;-moz-box-shadow: 4px 4px #dfe1d8;-webkit-box-shadow: 4px 4px #dfe1d8;box-shadow: 4px 4px #dfe1d8;}
+
+h4 { margin:5px 5px 5px 50px;padding:0; font-size:20px; }
+h4 img.edit, h4 img.delete{ padding: 2px 5px 0 5px; cursor:pointer;}
+p { font-size:16px; color:#000; margin:5px 5px 5px 50px; }
+
+.info1{border:1px solid #9d9c49;color:#9d9c49;background:#fdfdcb url('calendar/warning.png') no-repeat; background-position:10px center;}
+.info2{border:1px solid #0e7fad;color:#0e7fad;background:#c0e9fa url('calendar/info.png') no-repeat; background-position:10px center;}
+.message{border:1px solid #000;color:#000;background:#efefef url('calendar/message.png') no-repeat; background-position:10px center;}
