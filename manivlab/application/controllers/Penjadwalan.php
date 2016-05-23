@@ -15,8 +15,7 @@ class Penjadwalan extends CI_Controller
 function index($year = null, $month = null, $day = null, $idlabkom = 1){
 		$year  = (empty($year) || !is_numeric($year))?  date('Y') :  $year;
 		$month = (is_numeric($month) &&  $month > 0 && $month < 13)? $month : date('m');
-		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');
-		
+		$day   = (is_numeric($day) &&  $day > 0 && $day < 31)?  $day : date('d');	
 		//$date      = $this->penjadwalan->getDateEvent($year, $month);
 		$cur_event = $this->penjadwalan->getEvent($year, $month, $day, 1);
         $pjma      = $this->penjadwalan->getEvent($year, $month, $day, 1);
@@ -87,6 +86,10 @@ function index($year = null, $month = null, $day = null, $idlabkom = 1){
 	
 	// do adding event for selected date
 	function do_add(){
+        // getEventTime   
+        // check each event tim    
+        // nambahnya
+        
 		$this->form_validation->set_rules('year', 'Year', 'trim|required|is_natural_no_zero');
 		$this->form_validation->set_rules('mon', 'Month', 'trim|required|is_natural_no_zero|less_than[13]');
 		$this->form_validation->set_rules('day', 'Day', 'trim|required|is_natural_no_zero|less_than[32]');
@@ -97,11 +100,11 @@ function index($year = null, $month = null, $day = null, $idlabkom = 1){
 		$this->form_validation->set_rules('event', 'Event', 'trim|required');
         $this->form_validation->set_rules('pjma', 'Pjma', 'trim|required');
 		$this->form_validation->set_rules('idlabkom', 'Idlabkom', 'trim|required');
+       // $this->form_validation->set_message('check jam', 'Jadwal labkom pada pukul ini telah tersedia');
 		
 		if ($this->form_validation->run() == FALSE){
 			echo json_encode(array('status' => false, 'title_msg' => 'Error', 'msg' => 'Please insert valid value'));
 		}else{
-
 			$this->penjadwalan->addEvent($this->input->post('year', true), 
 											 $this->input->post('mon', true), 
 											 $this->input->post('day', true), 
@@ -111,6 +114,8 @@ function index($year = null, $month = null, $day = null, $idlabkom = 1){
                                              $this->input->post('pjma', true),
                                             $this->input->post('idlabkom', true));
 			echo json_encode(array('status' => true, 'time' => $this->input->post('time', true), 'time1' => $this->input->post('time1', true), 'event' => $this->input->post('event', true), 'pjma' => $this->input->post('pjma', true), 'idlabkom' => $this->input->post('idlabkom', true)));
+            
+            
 		}
 	}
 	
@@ -164,7 +169,7 @@ function detail($year = null, $month = null, $day = null, $idlabkom = 1){
 		return array(
 			'start_day' 		=> 'monday',
 			'show_next_prev' 	=> true,
-			'next_prev_url' 	=> site_url('penjadwalan/index'),
+			'next_prev_url' 	=> base_url('penjadwalan/index'),
 			'month_type'   		=> 'long',
             'day_type'     		=> 'short',
 			'template' 			=> '{table_open}<table class="date">{/table_open}

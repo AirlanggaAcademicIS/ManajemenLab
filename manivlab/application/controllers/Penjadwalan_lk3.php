@@ -162,7 +162,7 @@ function detail($year = null, $month = null, $day = null, $idlabkom = 3 ){
 		return array(
 			'start_day' 		=> 'monday',
 			'show_next_prev' 	=> true,
-			'next_prev_url' 	=> site_url('penjadwalan/index'),
+			'next_prev_url' 	=> base_url('penjadwalan_lk3/index'),
 			'month_type'   		=> 'long',
             'day_type'     		=> 'short',
 			'template' 			=> '{table_open}<table class="date">{/table_open}
