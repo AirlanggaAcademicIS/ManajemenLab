@@ -53,12 +53,14 @@
       <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="ex: L001" required>
     </div>
       
-    <div class="form-group">
+     <div class="form-group">
       <label for="lokasi_komp">Lokasi Komputer: </label>
-      <label class="radio-inline"><input type="radio" name="lokasi_komp" value=1 >Labkom 1</label>
-      <label class="radio-inline"><input type="radio" name="lokasi_komp" value=2>Labkom 2</label>
-      <label class="radio-inline"><input type="radio" name="lokasi_komp" value=3>Labkom 3</label>
-    </div>
+     <select name="lokasi_komp" class="form-control" id="lokasi_komp"required>
+       <option>Labkom 1</option>
+       <option>Labkom 2</option>
+       <option>Labkom 3</option>
+       <option>Labkom 4</option>
+     </select>
 
     <div class="form-group">
       <label for="merk_processor">Merk Processor:</label>
@@ -174,32 +176,34 @@
      <tbody>
 	<!-- Pengambilan item list dari database -->
    
-		<?php 
-		$count = 1;
-		foreach($komputer as $row) {?>
-  
-       
-        <tr>
-        <td><?php echo $count; ?></td>
-        <td><?php echo $row->kode_barang; ?></td>
-        <td><?php echo $row->nama_barang; ?> </td>
-        <td><?php echo $row->lokasi_komp; ?></td>
-        <td><?php echo $row->merk_processor; ?></td>
-        <td><?php echo $row->kecepatan_processor; ?></td>
-        <td><?php echo $row->socket_processor; ?></td>
-        <td><?php echo $row->merkmotherboard_komp; ?></td>
-        <td><?php echo $row->modelmotherboard_komp; ?></td>
-        <td><?php echo $row->northbridge_komp; ?></td>
-        <td><?php echo $row->southbridge_komp; ?></td>
-        <td><?php echo $row->tiperam_komp; ?></td>
-        <td><?php echo $row->kapasitas_komp; ?></td>
-        <td><?php echo $row->pc_komp; ?></td>
-        <td><?php echo $row->macaddress_komp; ?></td>
-        <td><?php echo $row->tahunbeli_komp; ?></td>
-        <td><?php echo $row->tanggal_transaksi; ?></td>
-        </tr>
+	
+        	<?php
+			$count = 1;
+			foreach($komputer as $row) {?>
+	  
+		   
+			<tr>
+			<td><?php echo $count; ?></td>
+			<td><?php echo $row->kode_barang; ?></td>
+			<td><?php echo $row->nama_barang; ?> </td>
+			<td><?php echo $row->lokasi_komp; ?></td>
+			<td><?php echo $row->merk_processor; ?></td>
+			<td><?php echo $row->kecepatan_processor; ?></td>
+			<td><?php echo $row->socket_processor; ?></td>
+			<td><?php echo $row->merkmotherboard_komp; ?></td>
+			<td><?php echo $row->modelmotherboard_komp; ?></td>
+			<td><?php echo $row->northbridge_komp; ?></td>
+			<td><?php echo $row->southbridge_komp; ?></td>
+			<td><?php echo $row->tiperam_komp; ?></td>
+			<td><?php echo $row->kapasitas_komp; ?></td>
+			<td><?php echo $row->pc_komp; ?></td>
+			<td><?php echo $row->macaddress_komp; ?></td>
+			<td><?php echo $row->tahunbeli_komp; ?></td>
+			<td><?php echo $row->tanggal_transaksi; ?></td>
+			</tr>
+			
+        <?php $count++;}  ?>
         
-        <?php $count++;} ?>
         </tbody>
   </table>
 </div>
