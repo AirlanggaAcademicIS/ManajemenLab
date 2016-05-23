@@ -77,6 +77,11 @@ class History extends CI_Controller
 		
 		$this->load->model('Manage_lab');
 		$result['manajemen'] = $this->Manage_lab->GetManajemenLabbyTanggal($start_date,$end_date,$kategori); 
+		
+		$this->load->model('M_nonkomp');
+		$result['nonkomp'] = $this->M_nonkomp->GetnonkompbyTanggal($start_date,$end_date,$kategori);
+		
+		
 		// print_r($result['item_masuk']);
 		// print_r($result['item_keluar']);
 		echo json_encode($result);

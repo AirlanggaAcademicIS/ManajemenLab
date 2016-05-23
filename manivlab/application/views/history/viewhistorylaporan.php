@@ -30,7 +30,7 @@
                 <a class="nav-link" href="<?php echo base_url();?>/penjadwalan">Scheduling</a>
             </li>
              
-            <li class="nav-item dropdown">
+            <li class="nav-item active dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">History</a>
                 <div class="dropdown-menu">
                      <a class="dropdown-item" href="<?php echo base_url();?>/history">Non-Komputer</a>
@@ -80,7 +80,8 @@
 								      <option value="keluhan">keluhan</option>
 								      <option value="identifikasi_keluhan">identifikasi keluhan</option>
 								      <option value="item_masuk">item masuk</option>
-                                      <option value="item_keluar">item keluar</option> 		
+                                      <option value="item_keluar">item keluar</option>
+                                      <option value="item_masuk_nonkomputer">item masuk non-komputer</option> 		
 		
 								    </select>
 										<!-- </div> -->
@@ -235,6 +236,42 @@
 			
 			</div><!--/row-->
 			
+            
+			<div class="row-fluid sortable table-laporan5" style="display:none;">		
+				<div class="box span12">
+					<div class="box-header" data-original-title>
+						<h2><i class="halflings-icon user"></i><span class="break"></span>History Barang Masuk Komputer</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						
+						<table id="tabel_item_masuk_nonkomputer" class="table table-striped table-bordered">
+						  <thead>
+							  <tr>
+								 		<th>NO</th>
+                                        <th>KODE BARANG</th>
+                                        <th>NAMA BARANG</th>
+                                        <th>JENIS</th>
+                                        <th>JUMLAH</th>
+                                        <th>TANGGAL TRANSAKSI</th>
+							  </tr>
+						  </thead>   
+						  <tbody id="tabel_item_masuk_nonkomputer2">
+						  	<!-- Pengambilan item list dari database -->
+		                      
+		                      <!-- End Of Pengambilan item list -->
+						  </tbody>
+						  
+					  </table>            
+					</div>
+				</div><!--/span-->
+			
+			</div><!--/row-->
+            
 			<script src="../public/laporan.js"></script>	
 	<div style="display:none" id="baseurl"><?php echo base_url() ?></div>
     		

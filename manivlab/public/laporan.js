@@ -1,9 +1,11 @@
 
   var baseUrl = $("#baseurl").text();
-
-
-    $("#CariRekap").click(function(){
-        
+/* $('#example').DataTable();
+$('#tabel_identifikasi_keluhan').DataTable();
+$('#tabel_item_masuk').DataTable();
+$('#tabel_item_keluar').DataTable();  
+*/
+$("#CariRekap").click(function(){
 
 		
         var kategori = $('select[name="selectKategori"]').attr('selected','selected').val();
@@ -25,8 +27,9 @@
 		$("#example1").empty();
 		$("#tabel_identifikasi_keluhan1").empty();
 		$("#tbody_item_masuk1").empty();
-		
 		$("#tbody_item_keluar2").empty();
+		$("#tabel_item_masuk_nonkomputer2").empty();
+		
 		 $.each(data.item_pppk, function( index, value ){
 
             $("#example1").append(""+
@@ -82,10 +85,27 @@
             $("#tbody_item_keluar2").append(""+
                 "<tr>"+
                     "<td class='center' value="+value.id+">"+count+"</td>"+
-					"<td class='center'>"+value.kode_barang+"</td>"+
-					"<td class='center'>"+value.nama_barang+"</td>"+
+					"<td class='center'>"+value.kode_barangpindah+"</td>"+ //direname jadi kode_barang pindah. tapi di db nya masih kode_barang
+					"<td class='center'>"+value.nama_barangpindah+"</td>"+
                     "<td class='center'>"+value.lokasi_awal+"</td>"+
                     "<td class='center'>"+value.lokasi_akhir+"</td>"+
+                    "<td class='center'>"+value.tanggal_transaksipindah+"</td>"+
+                   
+                  "</tr>)"
+            );
+			 count++; 
+			 
+		 });
+		 
+		 $.each(data.nonkomp, function( index, value ){
+
+            $("#tabel_item_masuk_nonkomputer2").append(""+
+                "<tr>"+
+                    "<td class='center' value="+value.id+">"+count+"</td>"+
+                    "<td class='center'>"+value.id_nonkomp+"</td>"+
+                    "<td class='center'>"+value.merk_nonkomp+"</td>"+
+					"<td class='center'>"+value.Jenis_nonkomp+"</td>"+
+					"<td class='center'>"+value.jumlah_nonkomp+"</td>"+
                     "<td class='center'>"+value.tanggal_transaksi+"</td>"+
                    
                   "</tr>)"
@@ -98,18 +118,23 @@
 			$(".table-laporan2").hide();
 			$(".table-laporan3").hide();
 			$(".table-laporan4").hide();
+			$(".table-laporan5").hide();
 			}
+			
 			else if(kategori=="identifikasi_keluhan"){
 			$(".table-laporan2").show();
 			$(".table-laporan1").hide();
 			$(".table-laporan3").hide();
 			$(".table-laporan4").hide();
+			$(".table-laporan5").hide();
 			}
+			
 			else if (kategori=="item_masuk"){
 			$(".table-laporan3").show();
 			$(".table-laporan1").hide();
 			$(".table-laporan2").hide();
 			$(".table-laporan4").hide();
+			$(".table-laporan5").hide();
 			
 			}
 			else if(kategori=="item_keluar"){
@@ -117,6 +142,15 @@
 			$(".table-laporan1").hide();
 			$(".table-laporan3").hide();
 			$(".table-laporan4").show();
+			$(".table-laporan5").hide();
+			}
+			
+			else if(kategori=="item_masuk_nonkomputer"){
+			$(".table-laporan2").hide();
+			$(".table-laporan1").hide();
+			$(".table-laporan3").hide();
+			$(".table-laporan4").hide();
+			$(".table-laporan5").show();
 			};
 		
 		});
