@@ -87,8 +87,8 @@ $("#CariRekap").click(function(){
                     "<td class='center' value="+value.id+">"+count+"</td>"+
 					"<td class='center'>"+value.kode_barangpindah+"</td>"+ //direname jadi kode_barang pindah. tapi di db nya masih kode_barang
 					"<td class='center'>"+value.nama_barangpindah+"</td>"+
-                    "<td class='center'>"+value.lokasi_awal+"</td>"+
-                    "<td class='center'>"+value.lokasi_akhir+"</td>"+
+                    "<td class='center'>"+value.lokasibarang_awal+"</td>"+
+                    "<td class='center'>"+value.lokasibarang_akhir+"</td>"+
                     "<td class='center'>"+value.tanggal_transaksipindah+"</td>"+
                    
                   "</tr>)"

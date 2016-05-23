@@ -38,4 +38,14 @@ class Manage_lab extends CI_Model {
 
         return $query->result();
 	}	
+	public function GetManajemenLabbyTanggal($start_date,$end_date,$kategori) {
+		$this->db->where('tanggal_transaksipindah >=',$start_date);
+		$this->db->where('tanggal_transaksipindah <=',$end_date);
+        $this->db->from('manajemen_barang');
+        $this->db->order_by("tanggal_transaksipindah", "desc");
+		$query = $this->db->get();
+        // echo $this->db->last_query();
+
+        return $query->result();
+	}
 }
