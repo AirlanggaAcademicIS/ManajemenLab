@@ -3,12 +3,12 @@
 	<!-- start: Meta -->
 	<meta charset="utf-8">
 	<title>History Manivlab</title>
-    <script src='../assets/jquery.js'></script>
-	<link href='../assets/css/datatables.css' rel='stylesheet' type='text/css'>
-    <link href='../assets/css/dataTables.bootstrap.css' rel='stylesheet' type='text/css'>
-    <link href='../assets/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+    <script src='assets/jquery.js'></script>
+	<link href='assets/css/datatables.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/dataTables.bootstrap.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
     
-    <script src='../assets/jquery.dataTables.min.js'></script>
+    <script src='assets/jquery.dataTables.min.js'></script>
     
     
 
@@ -157,11 +157,12 @@
 						<table id="tabel_item_masuk" class="table table-striped table-bordered bootstrap-datatable datatable">
 						  <thead>
 							  <tr>
-										<th>NO</th>
-                                   <!--     <th>NAMA BARANG</th> -->
-                                        <th>MERK</th>
+										
+                                        <th>KODE BARANG</th>
+                                        <th>NAMA BARANG</th>
+                                        <th>JENIS</th>
                                         <th>JUMLAH</th>
-                                      <!--  <th>TANGGAL TRANSAKSI</th> -->
+                                        <th>TANGGAL TRANSAKSI</th>
                                                                                 
 							  </tr>
 						  </thead>   
@@ -170,9 +171,10 @@
 		                  <?php foreach($nonkomp -> result() as $row) {?>
                                     <tr>
                                         <td><?php echo $row->id_nonkomp; ?></td>
-                               <!--         <td> </td> -->
-                                        <td><?php echo $row->merk_nonkomp; ?></td>
+                           				<td><?php echo $row->nama_nonkomp; ?></td>
+                                        <td><?php echo $row->Jenis_nonkomp; ?></td>
                                         <td><?php echo $row->jumlah_nonkomp; ?></td>
+                                        <td><?php echo $row->tanggal_transaksi; ?></td>
                                 	<!--	<td> </td> -->
                                     </tr>
                                     <?php } ?>
@@ -225,5 +227,5 @@
     </div>
     
     
-    <script src="../assets/js/history.js"></script>
+    <script src="assets/js/history.js"></script>
 </body>

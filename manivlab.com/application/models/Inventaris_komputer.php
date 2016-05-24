@@ -47,8 +47,8 @@ public function insertkomp($kode, $nama_barang, $lokasi_komp, $merk, $kecepatan,
 		}
 		
 	public function gettablekomputer(){
-		$query =  $this->db->get('komputer');
-		return $query->result();
+		return $this->db->get('komputer');
+		
 		}
 		
 	public function GetIdbyTanggal($start_date,$kategori) {
