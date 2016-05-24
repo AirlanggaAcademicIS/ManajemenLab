@@ -5,12 +5,12 @@
 	<title>Laporan History Manivlab</title>
   
   </head>
-    <script src='../public/jquery.js'></script>
-	  <link href='../public/css/datatables.css' rel='stylesheet' type='text/css'>
-    <link href='../public/css/dataTables.bootstrap.css' rel='stylesheet' type='text/css'>
-    <link href='../public/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+    <script src='assets/jquery.js'></script>
+	  <link href='assets/css/datatables.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/dataTables.bootstrap.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
     
-    <script src='../public/jquery.dataTables.min.js'></script>
+    <script src='assets/jquery.dataTables.min.js'></script>
 
 <body>
             <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
@@ -272,7 +272,7 @@
 			
 			</div><!--/row-->
             
-			<script src="../public/laporan.js"></script>	
+			<script src="assets/laporan.js"></script>	
 	<div style="display:none" id="baseurl"><?php echo base_url() ?></div>
     		
   
