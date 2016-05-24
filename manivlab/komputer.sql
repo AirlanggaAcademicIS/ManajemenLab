@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 15, 2016 at 03:41 PM
+-- Generation Time: May 24, 2016 at 04:09 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.19
 
@@ -51,11 +51,8 @@ CREATE TABLE `komputer` (
 --
 
 INSERT INTO `komputer` (`id`, `kode_barang`, `nama_barang`, `lokasi_komp`, `merk_processor`, `kecepatan_processor`, `socket_processor`, `merkmotherboard_komp`, `modelmotherboard_komp`, `northbridge_komp`, `southbridge_komp`, `tiperam_komp`, `kapasitas_komp`, `pc_komp`, `macaddress_komp`, `tahunbeli_komp`, `tanggal_transaksi`) VALUES
-(1, 'a', 'a', 'on', 'a', 'a', 'a', 'a', 'a', 'aa', 'a', 'a', 0, 0, 0, '2016', '0000-00-00'),
-(2, 'KOMP001', 'Lenovo A112', 'on', 'intel core i3', '3.2 GHz', 'LGA 122', 'MAC', 'H61M PP0', 'H61M PP0', 'Intel A123', 'DDR3', 2048, 0, 90, '2016', '0000-00-00'),
-(3, 'KOMP001', 'Lenovo A112', 'on', 'intel core i3', '3.2 GHz', 'LGA 122', 'MAC', 'H61M PP0', 'H61M PP0', 'Intel A123', 'DDR3', 2048, 0, 90, '2016', '0000-00-00'),
-(4, 'hH', 'h', 'on', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 0, 0, 0, '2016', '2016-05-13'),
-(5, 'xx', 'x', '2', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 0, 0, 0, '2013', '2016-05-17');
+(1, 'a', 'a', 'Labkom 1', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 0, 0, 0, '2016', '2016-05-23'),
+(2, 'q', 'qq', 'Labkom 1', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 0, 0, 0, '2016', '0000-00-00');
 
 --
 -- Indexes for dumped tables
@@ -75,7 +72,7 @@ ALTER TABLE `komputer`
 -- AUTO_INCREMENT for table `komputer`
 --
 ALTER TABLE `komputer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
