@@ -48,9 +48,11 @@ class Komputer extends CI_Controller
 	  $temp=$this->Inventaris_komputer->insertkomp($kode,$nama_barang,$lokasi_komp,$merk_processor,$kecepatan_processor,$socket_processor,$merkmotherboard_komp,$modelmotherboard_komp,$northbridge_komp,$southbridge_komp,$tiperam_komp,$kapasitas_komp,$pc_komp,$macaddress_komp,$tahunbeli_komp, $tanggal_transaksi );
 	  
 	  if($temp){
-		  redirect ('/inventaris/','refresh');
+		  redirect ('komputer','refresh');
 	  }
-	  
+	  else{
+	  	  redirect ('komputer','refresh');
+	  }
   }
   
   

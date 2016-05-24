@@ -1,38 +1,38 @@
 
-<style src="assets/css/jquery.dataTables.min.css" type="text/css"> </style>
-<style src="assets/css/jquery.dataTables.css" type="text/css"> </style>
-<style src="assets/css/datatables.css" type="text/css"> </style>
-<script src="assets/jquery.js" type="text/javascript"> </script>
-<script src="assets/jquery.dataTables.min.js" type="text/javascript"> </script>
+<style src="public/css/jquery.dataTables.min.css" type="text/css"> </style>
+<style src="public/css/jquery.dataTables.css" type="text/css"> </style>
+<style src="public/css/datatables.css" type="text/css"> </style>
+<script src="public/jquery.js" type="text/javascript"> </script>
+<script src="public/jquery.dataTables.min.js" type="text/javascript"> </script>
 
 
 
 <body>
      <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
-        <img class="navbar-brand" src="<?php echo base_url();?>assets/images/logomanivlab.png">
+        <img class="navbar-brand" src="<?php echo base_url();?>public/images/logomanivlab.png">
         <ul class="nav navbar-nav">
         
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>gb">Home </a>
+                <a class="nav-link" href="<?php echo base_url();?>/home">Home </a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inventaris</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?php echo base_url();?>Komputer">Komputer</a>
-                    <a class="dropdown-item" href="<?php echo base_url();?>Inventaris">Non-Komputer</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/Komputer">Komputer</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>/Inventaris">Non-Komputer</a>
                 </div>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="<?php echo base_url();?>managelab">Management Lab</a>
+                <a class="nav-link" href="<?php echo base_url();?>/managelab">Management Lab</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>penjadwalan">Scheduling</a>
+                <a class="nav-link" href="<?php echo base_url();?>/penjadwalan">Scheduling</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>history">History</a>
+                <a class="nav-link" href="<?php echo base_url();?>/history">History</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>eticketing">E-Ticketing</a>
+                <a class="nav-link" href="<?php echo base_url();?>/eticketing">E-Ticketing</a>
             </li>
         </ul>
 
@@ -53,12 +53,14 @@
       <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="ex: L001" required>
     </div>
       
-    <div class="form-group">
+     <div class="form-group">
       <label for="lokasi_komp">Lokasi Komputer: </label>
-      <label class="radio-inline"><input type="radio" name="lokasi_komp" value=1 >Labkom 1</label>
-      <label class="radio-inline"><input type="radio" name="lokasi_komp" value=2>Labkom 2</label>
-      <label class="radio-inline"><input type="radio" name="lokasi_komp" value=3>Labkom 3</label>
-    </div>
+     <select name="lokasi_komp" class="form-control" id="lokasi_komp"required>
+       <option>Labkom 1</option>
+       <option>Labkom 2</option>
+       <option>Labkom 3</option>
+       <option>Labkom 4</option>
+     </select>
 
     <div class="form-group">
       <label for="merk_processor">Merk Processor:</label>
@@ -174,34 +176,36 @@
      <tbody>
 	<!-- Pengambilan item list dari database -->
    
-		<?php 
-		$count = 1;
-		foreach($komputer as $row) {?>
-  
-       
-        <tr>
-        <td><?php echo $count; ?></td>
-        <td><?php echo $row->kode_barang; ?></td>
-        <td><?php echo $row->nama_barang; ?> </td>
-        <td><?php echo $row->lokasi_komp; ?></td>
-        <td><?php echo $row->merk_processor; ?></td>
-        <td><?php echo $row->kecepatan_processor; ?></td>
-        <td><?php echo $row->socket_processor; ?></td>
-        <td><?php echo $row->merkmotherboard_komp; ?></td>
-        <td><?php echo $row->modelmotherboard_komp; ?></td>
-        <td><?php echo $row->northbridge_komp; ?></td>
-        <td><?php echo $row->southbridge_komp; ?></td>
-        <td><?php echo $row->tiperam_komp; ?></td>
-        <td><?php echo $row->kapasitas_komp; ?></td>
-        <td><?php echo $row->pc_komp; ?></td>
-        <td><?php echo $row->macaddress_komp; ?></td>
-        <td><?php echo $row->tahunbeli_komp; ?></td>
-        <td><?php echo $row->tanggal_transaksi; ?></td>
-        </tr>
+	
+        	<?php
+			$count = 1;
+			foreach($komputer as $row) {?>
+	  
+		   
+			<tr>
+			<td><?php echo $count; ?></td>
+			<td><?php echo $row->kode_barang; ?></td>
+			<td><?php echo $row->nama_barang; ?> </td>
+			<td><?php echo $row->lokasi_komp; ?></td>
+			<td><?php echo $row->merk_processor; ?></td>
+			<td><?php echo $row->kecepatan_processor; ?></td>
+			<td><?php echo $row->socket_processor; ?></td>
+			<td><?php echo $row->merkmotherboard_komp; ?></td>
+			<td><?php echo $row->modelmotherboard_komp; ?></td>
+			<td><?php echo $row->northbridge_komp; ?></td>
+			<td><?php echo $row->southbridge_komp; ?></td>
+			<td><?php echo $row->tiperam_komp; ?></td>
+			<td><?php echo $row->kapasitas_komp; ?></td>
+			<td><?php echo $row->pc_komp; ?></td>
+			<td><?php echo $row->macaddress_komp; ?></td>
+			<td><?php echo $row->tahunbeli_komp; ?></td>
+			<td><?php echo $row->tanggal_transaksi; ?></td>
+			</tr>
+			
+        <?php $count++;}  ?>
         
-        <?php $count++;} ?>
         </tbody>
   </table>
 </div>
-    <script src="assets/komputer.js" type="text/javascript"> </script>
+    <script src="public/komputer.js" type="text/javascript"> </script>
 </body>
