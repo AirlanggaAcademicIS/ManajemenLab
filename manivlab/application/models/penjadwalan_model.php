@@ -20,10 +20,7 @@ class Penjadwalan_model extends CI_Model {
 		}
 	}
 	
-    
-    function getEventTime($eventTime){
-        
-    }
+  
     
 	// get event detail for selected date
 	function getEvent($year, $month, $day, $idlabkom){
@@ -47,8 +44,17 @@ class Penjadwalan_model extends CI_Model {
 	// insert event
 	function addEvent($year, $month, $day, $time, $time1, $event, $pjma, $idlabkom){	
 		$day   = (strlen($day) == 1)? "0$day" : $day;
-		$month = (strlen($month) == 1)? "0$month" : $month;
-		
+		$month = (strlen($month) == 1)? "0$month" : $month;   
+        
+        $this->db->where('event_date',"$year-$month-$day");
+        $this->db->where('event_time',$time);
+		$this->db->where('event_time_to',$time1);
+		$this->db->where('idlabkom',$idlabkom);
+		$query  = $this->db->get("event_detail");
+		if($query->result()){
+		return false;
+		}
+		else{
 		$check = $this->db->get_where('events', array('event_date' => "$year-$month-$day"));
 		if($check->num_rows() > 0){
 			$this->db->query("UPDATE events SET total_events = total_events + 1 WHERE event_date = ?", array("$year-$month-$day"));
@@ -58,7 +64,7 @@ class Penjadwalan_model extends CI_Model {
 		    $this->db->insert('event_detail', array('event_date' => "$year-$month-$day", 'event_time' => $time, 'event_time_to' => $time1, 'event' => $event, 'pjma' => $pjma,'idlabkom' => $idlabkom));
 		}
 		
-	}
+	}}
 	
 	// delete event
 	function deleteEvent($year, $month, $day, $id){
