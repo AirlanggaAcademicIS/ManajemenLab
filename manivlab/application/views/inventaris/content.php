@@ -30,6 +30,7 @@
         </ul>
 
     </nav>
+    
 
         <div class="container-fluid">
       <div class="container text-center">
@@ -37,8 +38,6 @@
           <div class="">
             <div class="box-keluar">        
               <h1></h1>
-              <h3> Selamat Datang di Fitur Non-Komputer, Selamat Bekerja ^^ </h3>
-                 <h6> Sistem ini memberikan kemudahan bagi petugas laboratorium komputer untuk memasukkan data barang non komputer. Dengan bahasa yang mudah dipahami, sistem ini sangat efektif dan efisien bagi petugas laboratorium komputer tanpa terbatas oleh tempat dan waktu.</h6>
               <br>
               <div class="row">
                 <div class="col-md-5 col-md-offset-1">
@@ -50,9 +49,6 @@
                     </div>
                   </form>
                   <br>                  
-                </div>
-                <div class="col-md-5" style="text-align:right">
-                  Petugas Laboratorium : Emilia
                 </div>
               </div>
 
@@ -185,6 +181,7 @@
     </div>
     </div>
 </div>
+
 
 <script src="public/js/edit.js" type="text/javascript"></script>
 </body>
