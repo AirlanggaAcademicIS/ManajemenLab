@@ -21,6 +21,13 @@ class Manage_lab extends CI_Model {
 		);
 		
 		$this->db->insert('manajemen_barang',$data);
+		if($this->db->affected_rows()>1){				
+			$result =  "berhasil";
+		}
+		else{
+			$result =  "gagal";
+		}
+		return $result;
 	} 
 	public function gettablemanajemen_barang(){
 		return $this->db->get('manajemen_barang');
@@ -32,20 +39,18 @@ class Manage_lab extends CI_Model {
 		}	
 		
 	public function getKomputerByKodeBarang($kode_barang){
+		//ambil kode barang dari tabel manajemen barang
 		$this->db->where("kode_barang",$kode_barang);
-        $this->db->from('komputer'); 
-        $query = $this->db->get();
-
+        $this->db->from('manajemen_barang'); 
         return $query->result();
 	}	
-	public function GetManajemenLabbyTanggal($start_date,$end_date,$kategori) {
-		$this->db->where('tanggal_transaksipindah >=',$start_date);
-		$this->db->where('tanggal_transaksipindah <=',$end_date);
-        $this->db->from('manajemen_barang');
-        $this->db->order_by("tanggal_transaksipindah", "desc");
-		$query = $this->db->get();
-        // echo $this->db->last_query();
+	
+	//ambil kode barang dari tabel komputer
+	//public function getKodeBarangMaster($kode_barang){
+	//	$this->db->where("kode_barang",$kode_barang);
+     //   $this->db->from('komputer'); 
+     //   $query = $this->db->get();
 
-        return $query->result();
-	}
+    //    return $query->result();
+	//}	
 }

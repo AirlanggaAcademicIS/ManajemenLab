@@ -28,8 +28,20 @@
 <div class="container">
   <h2>Management Lab</h2>
 <br>
- <form role="form" method ="post" action="<?php echo base_url();?>managelab/insertmanagelab">
+<?php if($result=="berhasil"):?>
+<div class="alert failed_stock alert-warning" style="display:block">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	<strong>Gagal!</strong> Tidak dapat menyimpan data.
+</div>
+<?php //sleep(5);
+elseif($result=="gagal"):?>
+<div class="alert success_stock alert-success" style="display:block">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	<strong>Sukses!</strong> Anda berhasil melakukan menyimpan data.
+</div>
+<?php endif;?>
 
+ <form role="form" method ="post" action="<?php echo base_url();?>managelab/insertmanagelab">
 
    <div class="form-group">
      <label for="kode_barang">Kode Barang :</label>
@@ -40,12 +52,12 @@
 
 <div class="form-group">
       <label for="nama_barang">Nama Barang :</label>
-      <input type="text" class="form-control" name="nama_barang" id="nama_barang" placeholder=" ">
-    </div>
+      <input type="text" class="form-control" name="nama_barang" id="nama_barang" placeholder=" " readOnly="true">
+     </div>
 
 <div class="form-group">
-<label for="tanggal_transaksi">Tanggal Transaksi :</label>
-<input type="date" name="tanggal_transaksi" class="form-control" id="tanggal_transaksi" placeholder="" required>
+	  <label for="tanggal_transaksi">Tanggal Transaksi :</label>
+	  <input type="date" name="tanggal_transaksi" class="form-control" id="tanggal_transaksi" placeholder="" required>
 </div>
 
     
@@ -58,26 +70,27 @@
  
 <div class="form-group">
       <label for="lokasibarang_awal">Lokasi Komputer Awal :</label>
-      <input type="text" class="form-control" name="lokasibarang_awal" id="lokasibarang_awal" placeholder=" ">
+      <input type="text" class="form-control" name="lokasibarang_awal" id="lokasibarang_awal" placeholder=" " readOnly="true">
     </div>
-       
-<div class="form-group">
-      <label for="lokasibarang_akhir">Lokasi Komputer Akhir : </label>
-      <label class="radio-inline"><input type="radio" value=1 name="lokasibarang_akhir" >Labkom 1</label>
-      <label class="radio-inline"><input type="radio" value=2 name="lokasibarang_akhir" >Labkom 2</label>
-      <label class="radio-inline"><input type="radio" value=3 name="lokasibarang_akhir" >Labkom 3</label>
-      <label class="radio-inline"><input type="radio" value=4 name="lokasibarang_akhir" >Labkom 4</label
-    ></div>
     
-
     <div class="form-group">
-      <label for="Deskripsi">Deskripsi:</label>
+      <label for="lokasibarang_akhir">Lokasi Komputer Akhir: </label>
+     <select name="lokasibarang_akhirp" class="form-control" id="lokasibarang_akhir"required>
+       <option>Labkom 1</option>
+       <option>Labkom 2</option>
+       <option>Labkom 3</option>
+       <option>Labkom 4</option>
+       <option>Gudang</option>
+     </select>
+          ,.
+    <div class="form-group">
+      <label for="Deskripsi">Keterangan :</label>
       <textarea class="form-control" rows="5" name="Deskripsi" id="Deskripsi"></textarea>
     </div>
     
 <br>
 <div class="container">
-  <button type="submit" class="btn btn-primary active btn-md col-sm-2">Insert</button>
+  	  <button type="submit" class="btn btn-primary active btn-md col-sm-2">Insert</button>
   </div>
 <br>
   
