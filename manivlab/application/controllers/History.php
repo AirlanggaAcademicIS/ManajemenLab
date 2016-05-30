@@ -21,11 +21,12 @@ class History extends CI_Controller
 	$aa = array ('table2'=> $tabel2); */
 	
 		$this->load->model('model');
+		$data['keluhan']=$this->model->jointabelticket();
 		$data['table']=$this->model->Getpppk();
 		$data['table2']=$this->model->GetIden();
 		
 		$this->load->model('M_nonkomp');
-		$data['nonkomp']=$this->M_nonkomp->gettablenonkomp();
+		$data['nonkomp']=$this->M_nonkomp->gettablekompjoinmanajemen();
 		
 
 		$this->load->model('Manage_lab');
@@ -37,6 +38,9 @@ class History extends CI_Controller
     $this->load->view('footer');
 	
 	} 
+	
+	
+	
 	function viewkomputer(){
 		$this->load->model('model');
 		$data['keluhan']=$this->model->jointabelticket();
@@ -61,6 +65,7 @@ class History extends CI_Controller
     $this->load->view("history/viewhistorylaporan");
     $this->load->view('footer');
 	}
+	
 	
 	// Mengambil laporan history
 	function getLaporanItemByTgl(){
