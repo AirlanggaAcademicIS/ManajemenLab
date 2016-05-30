@@ -39,11 +39,12 @@ class History extends CI_Controller
 	} 
 	function viewkomputer(){
 		$this->load->model('model');
+		$data['keluhan']=$this->model->jointabelticket();
 		$data['table']=$this->model->Getpppk();
 		$data['table2']=$this->model->GetIden();
 		
 		$this->load->model('inventaris_komputer');
-		$data['komp']=$this->inventaris_komputer->gettablekomputer();
+		$data['komp']=$this->inventaris_komputer->gettablekompjoinmanajemen();
 		
 
 		$this->load->model('Manage_lab');

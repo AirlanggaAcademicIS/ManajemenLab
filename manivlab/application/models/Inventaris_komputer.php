@@ -47,20 +47,25 @@ public function insertkomp($kode, $nama_barang, $lokasi_komp, $merk, $kecepatan,
 		}
 		
 	public function gettablekomputer(){
-		$query =  $this->db->get('komputer');
-		return $query->result();
+		return $this->db->get('komputer');
+		 
 		}
 		
 	public function GetIdbyTanggal($start_date, $end_date,$kategori) {
- 		$this->db->where('tanggal_transaksi >=',$start_date);
-		$this->db->where('tanggal_transaksi <=',$end_date);
+ 		$this->db->where('tanggal_transaksikomp >=',$start_date);
+		$this->db->where('tanggal_transaksikomp <=',$end_date);
         $this->db->from('komputer');
-        $this->db->order_by("tanggal_transaksi", "desc");
+        $this->db->order_by("tanggal_transaksikomp", "desc");
   $query = $this->db->get();
         // echo $this->db->last_query();
 
         return $query->result();
  }
-	
+ public function gettablekompjoinmanajemen() {
+		 $query = $this->db->query('SELECT * FROM komputer
+LEFT JOIN manajemen_barang
+on komputer.kode_barangkomp = manajemen_barang.kode_barang');
+		return $query;
+	}
 	
 }
