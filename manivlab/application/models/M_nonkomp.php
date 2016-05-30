@@ -56,6 +56,17 @@ class M_nonkomp extends CI_Model {
     $search=$this->db->query("select * from table_nonkomp where id_nonkomp like '%$search%'  ");
     return $search->result();
 }
+public function GetnonkompbyTanggal($start_date,$end_date,$kategori) {
+		$this->db->where('tanggal_transaksi >=',$start_date);
+		$this->db->where('tanggal_transaksi <=',$end_date);
+        $this->db->from('nonkomputer');
+        $this->db->order_by("tanggal_transaksi", "desc");
+		$query = $this->db->get();
+        // echo $this->db->last_query();
+
+        return $query->result();
+	}
+	
 
 }
 

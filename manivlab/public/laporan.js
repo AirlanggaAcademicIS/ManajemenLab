@@ -35,6 +35,7 @@ $("#CariRekap").click(function(){
             $("#example1").append(""+
                 "<tr>"+
                     "<td class='center' value="+value.id+">"+count+"</td>"+
+					"<td class='center'>"+value.no+"</td>"+
                     "<td class='center'>"+value.dari+"</td>"+
                     "<td class='center'>"+value.tanggal+"</td>"+
                     "<td class='center'>"+value.labkom+"</td>"+
@@ -53,8 +54,9 @@ $("#CariRekap").click(function(){
             $("#tabel_identifikasi_keluhan1").append(""+
                 "<tr>"+
                     "<td class='center' value="+value.id+">"+count+"</td>"+
+					"<td class='center'>"+value.no+"</td>"+
                     "<td class='center'>"+value.dari+"</td>"+
-                    "<td class='center'>"+value.tanggal+"</td>"+
+                    "<td class='center'>"+value.tanggal_iden+"</td>"+
                     "<td class='center'>"+value.identifikasi+"</td>"+
                    
                   "</tr>)"
@@ -70,9 +72,9 @@ $("#CariRekap").click(function(){
             $("#tbody_item_masuk1").append(""+
                 "<tr>"+
                     "<td class='center' value="+value.id+">"+count+"</td>"+
-                    "<td class='center'>"+value.nama_barang+"</td>"+
+                    "<td class='center'>"+value.nama_barangkomp+"</td>"+
                     "<td class='center'>"+value.merk_processor+"</td>"+
-                    "<td class='center'>"+value.tanggal_transaksi+"</td>"+
+                    "<td class='center'>"+value.tanggal_transaksikomp+"</td>"+
                    
                   "</tr>)"
             );
@@ -85,11 +87,11 @@ $("#CariRekap").click(function(){
             $("#tbody_item_keluar2").append(""+
                 "<tr>"+
                     "<td class='center' value="+value.id+">"+count+"</td>"+
-					"<td class='center'>"+value.kode_barangpindah+"</td>"+ //direname jadi kode_barang pindah. tapi di db nya masih kode_barang
-					"<td class='center'>"+value.nama_barangpindah+"</td>"+
+					"<td class='center'>"+value.kode_barang+"</td>"+ //direname jadi kode_barang pindah. tapi di db nya masih kode_barang
+					"<td class='center'>"+value.nama_barang+"</td>"+
                     "<td class='center'>"+value.lokasibarang_awal+"</td>"+
                     "<td class='center'>"+value.lokasibarang_akhir+"</td>"+
-                    "<td class='center'>"+value.tanggal_transaksipindah+"</td>"+
+                    "<td class='center'>"+value.tanggal_transaksi+"</td>"+
                    
                   "</tr>)"
             );

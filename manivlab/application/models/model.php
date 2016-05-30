@@ -118,10 +118,10 @@ class Model extends CI_Model {
         return $query->result();
 	}
 	public function GetIdenbyTanggal($start_date,$end_date,$kategori) {
-		$this->db->where('tanggal >=',$start_date);
-		$this->db->where('tanggal <=',$end_date);
+		$this->db->where('tanggal_iden >=',$start_date);
+		$this->db->where('tanggal_iden <=',$end_date);
         $this->db->from('ticket_iden');
-        $this->db->order_by("tanggal", "desc");
+        $this->db->order_by("tanggal_iden", "desc");
 		$query = $this->db->get();
         // echo $this->db->last_query();
 

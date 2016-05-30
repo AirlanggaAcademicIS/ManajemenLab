@@ -45,6 +45,17 @@ class Manage_lab extends CI_Model {
         return $query->result();
 	}	
 	
+	public function GetManajemenLabbyTanggal($start_date,$end_date,$kategori) {
+		$this->db->where('tanggal_transaksi >=',$start_date);
+		$this->db->where('tanggal_transaksi <=',$end_date);
+        $this->db->from('manajemen_barang');
+        $this->db->order_by("tanggal_transaksi", "desc");
+		$query = $this->db->get();
+        // echo $this->db->last_query();
+
+        return $query->result();
+	}
+	
 	//ambil kode barang dari tabel komputer
 	//public function getKodeBarangMaster($kode_barang){
 	//	$this->db->where("kode_barang",$kode_barang);

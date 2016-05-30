@@ -79,9 +79,9 @@
 										 
 								      <option value="keluhan">keluhan</option>
 								      <option value="identifikasi_keluhan">identifikasi keluhan</option>
-								      <option value="item_masuk">item masuk</option>
-                                      <option value="item_keluar">item keluar</option>
-                                      <option value="item_masuk_nonkomputer">item masuk non-komputer</option> 		
+								      <option value="item_masuk">barang komputer masuk</option>
+                                      <option value="item_keluar">barang dipindah</option>
+                                      <option value="item_masuk_nonkomputer">barang non-komputer masuk</option> 		
 		
 								    </select>
 										<!-- </div> -->
@@ -118,6 +118,7 @@
                                     <tr>
                                         
                                         <th>NO</th>
+                                        <th>KODE</th>
                                         <th>DARI</th>
                                         <th>TGL KELUHAN</th>
                                         <th>LABKOM</th>
@@ -153,6 +154,7 @@
 							  	<tr>
 								  <th>NO</th>
                                         <th>DARI</th>
+                                         <th>KODE</th>
                                         <th>TANGGAL</th>
                                         <th>IDENTIFIKASI</th>
 								</tr>
@@ -240,7 +242,7 @@
 			<div class="row-fluid sortable table-laporan5" style="display:none;">		
 				<div class="box span12">
 					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon user"></i><span class="break"></span>History Barang Masuk Komputer</h2>
+						<h2><i class="halflings-icon user"></i><span class="break"></span>History Barang Masuk Non-Komputer</h2>
 						<div class="box-icon">
 							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
 							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
