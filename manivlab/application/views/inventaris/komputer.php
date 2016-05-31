@@ -44,13 +44,13 @@
   
   <form role="form" method ="post" action="<?php echo base_url();?>komputer/insertkomp">
     <div class="form-group">
-      <label for="kode_barang">Kode Barang:</label>
-      <input type="text" name="kode_barang" class="form-control" id="kode_barang" placeholder="ex: 001" required>
+      <label for="kode_barangkomp">Kode Barang:</label>
+      <input type="text" name="kode_barangkomp" class="form-control" id="kode_barangkomp" placeholder="ex: 001" required>
     </div>
       
     <div class="form-group">
-      <label for="nama_barang">Nama Barang:</label>
-      <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="ex: L001" required>
+      <label for="nama_barangkomp">Nama Barang:</label>
+      <input type="text" name="nama_barangkomp" class="form-control" id="nama_barangkomp" placeholder="ex: L001" required>
     </div>
       
      <div class="form-group">
@@ -140,15 +140,15 @@
      </select>
      
       <div class="form-group">
-      <label for="tanggal_transaksi">Tanggal Transaksi :</label>
-      <input type="date" name="tanggal_transaksi" class="form-control" id="tanggal_transaksi" placeholder="">
+      <label for="tanggal_transaksikomp">Tanggal Transaksi :</label>
+      <input type="date" name="tanggal_transaksikomp" class="form-control" id="tanggal_transaksikomp" placeholder="">
     </div>
        
 </div>
+</form>
 <br>
 <div class="container">
   <button type="submit" class="btn btn-primary active btn-md col-sm-2">Insert</button>
-  <button type="submit" class="btn btn-primary disabled btn-md col-sm-offset-1 col-sm-2">Update</button>
 </div>
   <br> <br>         
   <table class="table table-bordered" id="tbl_komputer">
@@ -158,19 +158,9 @@
         <th>Kode Barang</th>
         <th>Nama Barang</th>
         <th>Lokasi Komputer</th>
-        <th>Merk Processor</th>
-        <th>Kecepatan Processor(GHz)</th>
-        <th>Socket Processor</th>
-        <th>Merk Motherboad</th>
-        <th>Model Motherboard</th>
-        <th>Chipset NorthBridge</th>
-        <th>Chipset SouthBridge</th>
-        <th>Tipe RAM</th>
-        <th>Kapasitas RAM</th>
-        <th>PC RAM</th>
-        <th>MAC Address</th>
         <th>Tahun Pembelian</th>
         <th>Tanggal Transaksi</th>
+        <th>Detail</th>
       </tr>
     </thead>
      <tbody>
@@ -184,22 +174,12 @@
 		   
 			<tr>
 			<td><?php echo $count; ?></td>
-			<td><?php echo $row->kode_barang; ?></td>
-			<td><?php echo $row->nama_barang; ?> </td>
+			<td><?php echo $row->kode_barangkomp; ?></td>
+			<td><?php echo $row->nama_barangkomp; ?> </td>
 			<td><?php echo $row->lokasi_komp; ?></td>
-			<td><?php echo $row->merk_processor; ?></td>
-			<td><?php echo $row->kecepatan_processor; ?></td>
-			<td><?php echo $row->socket_processor; ?></td>
-			<td><?php echo $row->merkmotherboard_komp; ?></td>
-			<td><?php echo $row->modelmotherboard_komp; ?></td>
-			<td><?php echo $row->northbridge_komp; ?></td>
-			<td><?php echo $row->southbridge_komp; ?></td>
-			<td><?php echo $row->tiperam_komp; ?></td>
-			<td><?php echo $row->kapasitas_komp; ?></td>
-			<td><?php echo $row->pc_komp; ?></td>
-			<td><?php echo $row->macaddress_komp; ?></td>
 			<td><?php echo $row->tahunbeli_komp; ?></td>
-			<td><?php echo $row->tanggal_transaksi; ?></td>
+			<td><?php echo $row->tanggal_transaksikomp; ?></td>
+            <td><button type="button" data-id="<?php echo $row->id?>" class="detail_barang" data-toggle="modal" data-target="#modaldetail">Detail</button></td>
 			</tr>
 			
         <?php $count++;}  ?>
@@ -207,5 +187,39 @@
         </tbody>
   </table>
 </div>
-    <script src="public/komputer.js" type="text/javascript"> </script>
+<div class="modal fade" id="modaldetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Detail Barang</h4>
+      </div>
+      <div class="modal-body">
+        <label>Id</label> : <label id="iddetile"></label> <br/>
+        <label>Kode Barang</label> : <label id="kodedetile"> </label> <br/>
+        <label>Nama Barang</label> : <label id="namadetile"></label> <br/>
+        <label>Lokasi Kompute</label> : <label id="lokasidetile"></label> <br/>
+        <label>Merk Processor</label> : <label id="merkdetile"></label> <br/>
+        <label>Kecepatan Processor (GHz)</label> :<label id="kecepatandetile"></label> <br/>
+        <label>Socket Processor </label> : <label id="socketdetile"></label> <br/>
+        <label>Merek Motherboard </label> :<label id="merkmotherboarddetile"></label> <br/>
+        <label>Model Motherboard </label> :<label id="modelmotherboarddetile"></label> <br/>
+        <label>Chipset Northbridge </label> :<label id="northbridgedetile"></label> <br/>
+        <label>Chipset Southbridge </label>  :<label id="southbridgedetile"></label> <br/>
+        <label>Tipe RAM </label> : <label id="tiperamdetile"></label> <br/>
+        <label>Kapasitas RAM (MB)</label> : <label id="kapasitasramdetile"></label> <br/>
+        <label>PC RAM </label> : <label id="pcramdetile"></label> <br/>
+        <label>MAC Address </label> : <label id="macaddressdetile"></label> <br/>
+        <label>Tahun Pembelian</label> : <label id="tahundetile"></label> <br/>
+        <label>Tanggal Transaksi </label> : <label id="transaksidetile"></label> <br/>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+	<script src="public/detile.js" type="text/javascript"></script>
 </body>
