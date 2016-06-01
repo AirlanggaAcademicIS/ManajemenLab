@@ -20,6 +20,8 @@ class Inventaris extends CI_Controller
     $this->load->view('header');
     $this->load->view('inventaris/content',$content);
     $this->load->view('footer');
+      
+      
 
   }
     public function insertnonkomp (){
@@ -33,9 +35,7 @@ class Inventaris extends CI_Controller
         
         
         $kirim = $this->m_nonkomp->insertnonkomp($namabarang,$tanggal_transaksi,$jenisbarang,$merkbarang,$jumlahbarang,$lokasibarang,$keteranganbarang);
-        redirect(base_url().'inventaris');
-        
-        
+        redirect(base_url().'inventaris'); 
     }
     public function getdatanonkomp(){
         $id = $this->input->post("id");
@@ -58,12 +58,6 @@ class Inventaris extends CI_Controller
         $result = $this->m_nonkomp->updatedata($id,$namabarang,$tanggal_transaksi,$jenisbarang,$merkbarang,$jumlahbarang,$lokasibarang,$keteranganbarang);
         echo json_encode($result);
     }
-    
 
-function searchID(){
-$search=$this->input->get('search');
-$beda['search']=$this->M_nonkomp->searchID($search);
-$this->load->view('content',$beda);
-}
-    
+
 }
