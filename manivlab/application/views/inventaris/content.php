@@ -1,4 +1,7 @@
 <script type="text/javascript" src="public/js/jquery.min.js"></script>
+<link rel="stylesheet" href ="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
+<script src="public/jquery.js" type="text/javascript"></script>
 <body>
 
             <nav class="navbar navbar-dark bg-inverse navbar-full" id="nav-main">
@@ -12,7 +15,7 @@
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inventaris</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="<?php echo base_url();?>/Komputer">Komputer</a>
-                    <a class="dropdown-item" href="<?php echo base_url();?>/Inventaris">Non-Komputer</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>Inventaris">Non-Komputer</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -35,36 +38,7 @@
         <div class="container-fluid">
       <div class="container text-center">
         <div class="row">
-          <div class="">
-            <div class="box-keluar">        
-              <h1></h1>
-              <br>
-              <div class="row">
-                <div class="col-md-5 col-md-offset-1">
-                  <form class="form-inline">
-                    <div class="form-group">
-                      <label for="exampleInputName2">ID Barang </label>
-                      <input type="text" class="form-control" id="exampleInputName2" placeholder="Masukkan ID Barang">
-                      <button type="button" class="btn btn-primary ">Search</button>       
-                    </div>
-                  </form>
-                  <br>                  
-                </div>
-              </div>
-
-              <table class="" style="border: 0px currentColor; border-image: none;">
-
-            </table>
-            <br>
-            </form>
-
-          </div>
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-4">
-          </div>
-        </div> 
-     
+         
      <div class="container-fluid">
       <div class="container">
       </div>
@@ -82,7 +56,7 @@
               
               <label for="inputNonKomp" class="col-sm-2 control-label">Tanggal Transaksi</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" name="tanggal_transaksi" id="tanggal_transaksi" placeholder="tangal_transaksi" required>
+                <input type="date" class="form-control" name="tanggal_transaksi" id="tanggal_transaksi" placeholder="tangal_transaksi" required >
               </div>
                 
               <label for="inputNonKomp" class="col-sm-2 control-label">Jenis Barang :</label>
@@ -127,27 +101,33 @@
               <button class="btn btn-default" id="updatedata" type="button">Update</button>
             </div>
           </form>
-         
-         
+
             <br>
-            <div >
-              <table class="table table-bordered">
+
               
-                <tr>
-                  <td class="info">No.</td>
-                  <td class="info">ID Barang</td>
-                  <td class="info">Nama Barang</td>
-                  <td class ="info">Tanggal Transaksi</td>
-                  <td class="info">Jenis Barang</td>
-                  <td class="info">Merk</td>
-                  <td class="info">Jumlah</td>
-                  <td class="info">Lokasi</td>
-                  <td class="info">Keterangan</td>
-                    <td class ="info">Edit</td>
-                </tr>
-                  
-                  
-                  <?php
+         
+            <div >
+                <table border="0" cellspacing="5" cellpadding="5">
+        <tbody>
+    </tbody></table><table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                
+                <th class="info">No.</th>
+                  <th class="info">ID Barang</th>
+                  <th class="info">Nama Barang</th>
+                  <th class ="info">Tanggal Transaksi</th>
+                  <th class="info">Jenis Barang</th>
+                  <th class="info">Merk</th>
+                  <th class="info">Jumlah</th>
+                  <th class="info">Lokasi</th>
+                  <th class="info">Keterangan</th>
+                    <th class ="info">Edit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php
                   $i=0;
                   foreach ($table->result()  as $row){
                        echo ' <tr>
@@ -165,16 +145,15 @@
                 </tr>';
                   }
                   ?>
-                
             
-                  
-              </table>
+        </tbody>
+    </table>
               
             </div>
             </form>       
 
           </div>
-          
+        </div>
         </div>
       </div>
       
@@ -184,4 +163,25 @@
 
 
 <script src="public/js/edit.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+   /* Custom filtering function which will search data in column four between two values */
+
+ 
+$(document).ready(function() {
+    var table = $('#example').DataTable();
+     
+    // Event listener to the two range filtering inputs to redraw on input
+    $('#min, #max').keyup( function() {
+        table.draw();
+    } );
+} );
+</script>
+
+<script src="https://code.jquery.com/jquery-1.12.3.min.js">
+</script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js">
+</script>
+
 </body>
+
