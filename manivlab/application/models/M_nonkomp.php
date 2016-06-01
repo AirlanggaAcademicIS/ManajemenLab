@@ -52,27 +52,5 @@ class M_nonkomp extends CI_Model {
         }
     }
 
-    public function searchID($search){
-    $search=$this->db->query("select * from table_nonkomp where id_nonkomp like '%$search%'  ");
-    return $search->result();
-}
-		public function GetnonkompbyTanggal($start_date,$end_date,$kategori) {
-		$this->db->where('tanggal_transaksinonkomp >=',$start_date);
-		$this->db->where('tanggal_transaksinonkomp <=',$end_date);
-        $this->db->from('nonkomputer');
-        $this->db->order_by("tanggal_transaksinonkomp", "desc");
-		$query = $this->db->get();
-        // echo $this->db->last_query();
-
-        return $query->result();
-	}
-	
-	public function gettablekompjoinmanajemen() {
-		 $query = $this->db->query('SELECT * FROM nonkomputer
-LEFT JOIN manajemen_barang
-on nonkomputer.id_nonkomp = manajemen_barang.kode_barang');
-		return $query;
-	}
-
 }
 
