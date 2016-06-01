@@ -10,28 +10,28 @@
         <ul class="nav navbar-nav">
         
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>/home">Home </a>
+                <a class="nav-link" href="<?php echo base_url();?>home">Home </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>/inventaris">Inventaris</a>
+                <a class="nav-link" href="<?php echo base_url();?>inventaris">Inventaris</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>/managelab">Management Lab</a>
+                <a class="nav-link" href="<?php echo base_url();?>managelab">Management Lab</a>
             </li>
             <li class="nav-item active dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Penjadwalan</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?php echo base_url();?>/penjadwalan">Labkom 1</a>
-                    <a class="dropdown-item" href="<?php echo base_url();?>/penjadwalan_lk2">Labkom 2</a>
-                    <a class="dropdown-item" href="<?php echo base_url();?>/penjadwalan_lk3">Labkom 3</a>
-                    <a class="dropdown-item" href="<?php echo base_url();?>/penjadwalan_lk4">Labkom 4</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>penjadwalan">Labkom 1</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>penjadwalan_lk2">Labkom 2</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>penjadwalan_lk3">Labkom 3</a>
+                    <a class="dropdown-item" href="<?php echo base_url();?>penjadwalan_lk4">Labkom 4</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>/history">History</a>
+                <a class="nav-link" href="<?php echo base_url();?>history">History</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url();?>/eticketing">E-Ticketing</a>
+                <a class="nav-link" href="<?php echo base_url();?>eticketing">E-Ticketing</a>
             </li>
         </ul>
     </nav>
@@ -152,12 +152,12 @@
                 </div>
                 <div class="col-sm-3">
                     <ul class="list-unstyled">
-                        <li><a href="<?php echo base_url();?>/home">Home</a></li>
-                        <li><a href="<?php echo base_url();?>/inventaris">Inventaris</a></li>
-                        <li><a href="<?php echo base_url();?>/managelab">Management Lab</a></li>
-                        <li><a href="<?php echo base_url();?>/penjadwalan">Scheduling</a></li>
-                        <li><a href="<?php echo base_url();?>/history">History</a></li>
-                        <li><a href="<?php echo base_url();?>/eticketing">E-Ticketing</a></li>
+                        <li><a href="<?php echo base_url();?>home">Home</a></li>
+                        <li><a href="<?php echo base_url();?>inventaris">Inventaris</a></li>
+                        <li><a href="<?php echo base_url();?>managelab">Management Lab</a></li>
+                        <li><a href="<?php echo base_url();?>penjadwalan">Scheduling</a></li>
+                        <li><a href="<?php echo base_url();?>history">History</a></li>
+                        <li><a href="<?php echo base_url();?>eticketing">E-Ticketing</a></li>
                     </ul>
                 </div>
 </div>
