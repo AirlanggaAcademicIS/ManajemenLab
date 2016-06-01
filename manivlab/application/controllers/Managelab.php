@@ -32,7 +32,6 @@ class Managelab extends CI_Controller
 	  $lokasibarang_awal= $this -> input->post('lokasibarang_awal');
 	  $lokasibarang_akhir= $this -> input->post('lokasibarang_akhir');
 	  $Deskripsi= $this -> input->post('Deskripsi');
-	  
 	  $this->load->model('Manage_lab');
 	  $data['result'] = $this->Manage_lab->insertmanagelab($kode_barang, $nama_barang, $tanggal_transaksi, $kondisi_barang, $lokasibarang_awal, $lokasibarang_akhir, $Deskripsi);
 	$this->load->view('header');

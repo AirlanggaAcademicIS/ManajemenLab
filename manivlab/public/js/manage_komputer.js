@@ -6,9 +6,8 @@ $.ajax({
 	}).done(function(data){
 		 console.log(data);
 		$.each( data, function( index, value ){
-			console.log(value.kode_barang);
-			$("#kode_barang").append("<option>"+value.kode_barang+"</option>")
-			
+			console.log(value.kode_barangkomp);
+			$("#kode_barang").append("<option>"+value.kode_barangkomp+"</option>");
 		});
 		 /* $("#NamaBarang").attr("data-source","["+source+"]");		*/  
 	});
@@ -25,8 +24,8 @@ $.ajax({
       }).done(function(data){
         var source = [];
         $.each( data, function( index, value ){
-          console.log(value.nama_barang);
-		  $("#nama_barang").val(value.nama_barang);
+          console.log(value.nama_barangkomp);
+		  $("#nama_barang").val(value.nama_barangkomp);
 		  $("#lokasibarang_awal").val(value.lokasi_komp);
         });      
       });

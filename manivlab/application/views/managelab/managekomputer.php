@@ -75,7 +75,7 @@ elseif($result=="gagal"):?>
     
     <div class="form-group">
       <label for="lokasibarang_akhir">Lokasi Komputer Akhir: </label>
-     <select name="lokasibarang_akhirp" class="form-control" id="lokasibarang_akhir"required>
+     <select name="lokasibarang_akhir" class="form-control" id="lokasibarang_akhir"required>
        <option>Labkom 1</option>
        <option>Labkom 2</option>
        <option>Labkom 3</option>
